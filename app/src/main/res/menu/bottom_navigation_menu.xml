@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_cities"
+        android:enabled="true"
+        android:icon="@drawable/ic_cities"
+        android:title="@string/title_cities"/>
+    <item
+        android:id="@+id/navigation_attractions"
+        android:enabled="true"
+        android:icon="@drawable/ic_attractions"
+        android:title="@string/title_attractions"/>
+    <item
+        android:id="@+id/navigation_news"
+        android:enabled="true"
+        android:icon="@drawable/ic_news"
+        android:title="@string/title_news"/>
+    <item
+        android:id="@+id/navigation_info"
+        android:enabled="true"
+        android:icon="@drawable/ic_info"
+        android:title="@string/title_info"/>
+    <item
+        android:id="@+id/navigation_settings"
+        android:enabled="true"
+        android:icon="@drawable/ic_settings"
+        android:title="@string/title_settings"/>
+</menu>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GeoHandbook</string>
+    <string name="title_cities">Gradovi</string>
+    <string name="title_news">Novosti</string>
+    <string name="title_settings">Podešavanja</string>
+    <string name="title_attractions">Atrakcije</string>
+    <string name="title_info">Informacije</string>
+</resources>

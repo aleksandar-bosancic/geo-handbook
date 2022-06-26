@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GeoHandbook</string>
+    <string name="title_cities">Cities</string>
+    <string name="title_news">News</string>
+    <string name="title_settings">Settings</string>
+    <string name="title_attractions">Attractions</string>
+    <string name="title_info">Info</string>
+</resources>
