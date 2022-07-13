@@ -9,12 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.databinding.FragmentCitiesBinding;
 
 public class CitiesFragment extends Fragment {
 
     private FragmentCitiesBinding binding;
+    private RecyclerView recyclerView;
+    CitiesRecyclerViewAdapter citiesRecyclerViewAdapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -24,6 +28,10 @@ public class CitiesFragment extends Fragment {
 
         binding = FragmentCitiesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
+
+        recyclerView = getView().findViewById(R.id.cities_recycler_view);
+        citiesRecyclerViewAdapter = new CitiesRecyclerViewAdapter();
+        recyclerView.setAdapter(citiesRecyclerViewAdapter);
 
         final TextView textView = binding.textHome;
         citiesViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
