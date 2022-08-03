@@ -19,7 +19,7 @@ public class CitiesFragment extends Fragment {
 
     private FragmentCitiesBinding binding;
     private RecyclerView recyclerView;
-    CitiesRecyclerViewAdapter citiesRecyclerViewAdapter;
+    private CitiesRecyclerViewAdapter citiesRecyclerViewAdapter;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,

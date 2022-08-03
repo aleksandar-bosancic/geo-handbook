@@ -15,7 +15,7 @@ import java.util.List;
 
 public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private List<CityListItemData> cities;
+    private final List<CityListItemData> cities;
 
     public CitiesRecyclerViewAdapter(){
         cities = new ArrayList<>();

@@ -1,18 +1,65 @@
 package com.rbhp.geohandbook.ui.news;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
+
+import com.rbhp.geohandbook.data.NewsFeed;
+import com.rbhp.geohandbook.data.NewsItem;
+import com.rbhp.geohandbook.http.APIInterface;
+import com.rbhp.geohandbook.http.RetrofitHttp;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class NewsViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
     private final MutableLiveData<String> mEnteredText;
+    private MutableLiveData<List<NewsItem>> newsItemList;
 
     public NewsViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is dashboard fragment");
         mEnteredText = new MutableLiveData<>();
+        newsItemList = new MutableLiveData<>();
+
+
+        APIInterface apiInterface = RetrofitHttp.getRetrofit().create(APIInterface.class);
+
+        apiInterface.getNews().enqueue(new Callback<NewsFeed>() {
+            @Override
+            public void onResponse(@NonNull Call<NewsFeed> call, @NonNull Response<NewsFeed> response) {
+                if (response.body() != null) {
+                    List<NewsItem> items = response.body().getItems();
+                    newsItemList.setValue(items);
+                    for (NewsItem item : items) {
+                        Log.println(Log.ASSERT, "title", item.getTitle());
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<NewsFeed> call, @NonNull Throwable t) {
+                Log.e("failed request", "couldn't get news data");
+            }
+        });
+
+    }
+
+    public MutableLiveData<List<NewsItem>> getNewsItemList() {
+        return newsItemList;
+    }
+
+    public void setNewsItemList(MutableLiveData<List<NewsItem>> newsItemList) {
+        this.newsItemList = newsItemList;
     }
 
     public LiveData<String> getText() {
@@ -27,7 +74,7 @@ public class NewsViewModel extends ViewModel {
         this.mEnteredText.setValue(mEnteredText);
     }
 
-    public void setText(String text){
+    public void setText(String text) {
         this.mText.setValue(text);
     }
 }
