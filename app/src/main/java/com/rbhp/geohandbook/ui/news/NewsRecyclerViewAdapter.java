@@ -9,14 +9,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.data.NewsItem;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<NewsItem> newsItemList;
+    private NewsItemListener newsItemListener;
 
-    public NewsRecyclerViewAdapter(){
+    public NewsRecyclerViewAdapter(NewsItemListener newsItemListener) {
+        this.newsItemListener = newsItemListener;
         newsItemList = new ArrayList<>();
     }
 
@@ -24,20 +27,18 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_news, parent, false);
-        return new NewsRecyclerViewHolder(view);
+        return new NewsRecyclerViewHolder(view, newsItemListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         NewsItem item = newsItemList.get(position);
         NewsRecyclerViewHolder viewHolder = (NewsRecyclerViewHolder) holder;
-        viewHolder.titleText.setText(item.getTitle());
-        viewHolder.dateText.setText(item.getPubDate());
-        viewHolder.authorText.setText(item.getAuthor());
-        viewHolder.summaryText.setText(item.getContent());
+        Picasso.get().load(item.getEnclosure().getLink()).into(viewHolder.getImageView());
+        viewHolder.getTitleText().setText(item.getTitle());
     }
 
-    public void updateList(List<NewsItem> news){
+    public void updateList(List<NewsItem> news) {
         newsItemList = null;
         this.newsItemList = new ArrayList<>(news);
         notifyDataSetChanged();
