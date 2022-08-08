@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Banja Luka",
+    "description": "grad",
+    "population": 200000,
+    "size": 1000,
+    "coordinates": {
+      "latitude": 44.769846,
+      "longitude": 17.189170
+    },
+    "image_url": "",
+    "video_url": ""
+  },
+  {
+    "name": "Banja Luka",
+    "description": "grad",
+    "population": 200000,
+    "size": 1000,
+    "coordinates": {
+      "latitude": 44.769846,
+      "longitude": 17.189170
+    },
+    "image_url": "",
+    "video_url": ""
+  },
+  {
+    "name": "Banja Luka",
+    "description": "grad",
+    "population": 200000,
+    "size": 1000,
+    "coordinates": {
+      "latitude": 44.769846,
+      "longitude": 17.189170
+    },
+    "image_url": "",
+    "video_url": ""
+  }
+]

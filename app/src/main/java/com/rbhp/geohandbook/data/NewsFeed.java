@@ -6,13 +6,13 @@ import java.util.List;
 
 public class NewsFeed {
     @SerializedName("items")
-    List<NewsItem> items = null;
+    List<NewsData> items = null;
 
-    public List<NewsItem> getItems() {
+    public List<NewsData> getItems() {
         return items;
     }
 
-    public void setItems(List<NewsItem> items) {
+    public void setItems(List<NewsData> items) {
         this.items = items;
     }
 }

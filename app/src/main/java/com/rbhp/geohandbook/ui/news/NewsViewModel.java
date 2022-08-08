@@ -8,7 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.rbhp.geohandbook.data.NewsFeed;
-import com.rbhp.geohandbook.data.NewsItem;
+import com.rbhp.geohandbook.data.NewsData;
 import com.rbhp.geohandbook.http.APIInterface;
 import com.rbhp.geohandbook.http.RetrofitHttp;
 
@@ -22,7 +22,7 @@ public class NewsViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
     private final MutableLiveData<String> mEnteredText;
-    private MutableLiveData<List<NewsItem>> newsItemList;
+    private MutableLiveData<List<NewsData>> newsItemList;
 
     public NewsViewModel() {
         mText = new MutableLiveData<>();
@@ -37,9 +37,9 @@ public class NewsViewModel extends ViewModel {
             @Override
             public void onResponse(@NonNull Call<NewsFeed> call, @NonNull Response<NewsFeed> response) {
                 if (response.body() != null) {
-                    List<NewsItem> items = response.body().getItems();
+                    List<NewsData> items = response.body().getItems();
                     newsItemList.setValue(items);
-                    for (NewsItem item : items) {
+                    for (NewsData item : items) {
                         Log.println(Log.ASSERT, "title", item.getTitle());
                     }
                 }
@@ -54,11 +54,11 @@ public class NewsViewModel extends ViewModel {
 
     }
 
-    public MutableLiveData<List<NewsItem>> getNewsItemList() {
+    public MutableLiveData<List<NewsData>> getNewsItemList() {
         return newsItemList;
     }
 
-    public void setNewsItemList(MutableLiveData<List<NewsItem>> newsItemList) {
+    public void setNewsItemList(MutableLiveData<List<NewsData>> newsItemList) {
         this.newsItemList = newsItemList;
     }
 

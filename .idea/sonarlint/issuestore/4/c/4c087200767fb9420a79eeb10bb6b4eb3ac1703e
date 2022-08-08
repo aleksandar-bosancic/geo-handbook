@@ -1,8 +1,0 @@
-
-…
-java:S1450"hRemove the "citiesRecyclerViewAdapter" field and declare it as a local variable in the relevant methods.(¿åØˆ8Ù×³š¦0
-v
-java:S1450"[Remove the "recyclerView" field and declare it as a local variable in the relevant methods.(¿á© ýÿÿÿÿ
-Q
-java:S1481"4Remove this unused "citiesViewModel" local variable.(½åõÌ8ÊÿÌÕ£0
-X	java:S125&"<This block of commented-out lines of code should be removed.(‘í±¾8ÔÿÌÕ£0

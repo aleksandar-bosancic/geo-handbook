@@ -8,19 +8,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rbhp.geohandbook.R;
-import com.rbhp.geohandbook.data.NewsItem;
+import com.rbhp.geohandbook.data.NewsData;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private List<NewsItem> newsItemList;
+    private List<NewsData> newsDataList;
     private NewsItemListener newsItemListener;
 
     public NewsRecyclerViewAdapter(NewsItemListener newsItemListener) {
         this.newsItemListener = newsItemListener;
-        newsItemList = new ArrayList<>();
+        newsDataList = new ArrayList<>();
     }
 
     @NonNull
@@ -32,20 +32,20 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        NewsItem item = newsItemList.get(position);
+        NewsData item = newsDataList.get(position);
         NewsRecyclerViewHolder viewHolder = (NewsRecyclerViewHolder) holder;
         Picasso.get().load(item.getEnclosure().getLink()).into(viewHolder.getImageView());
         viewHolder.getTitleText().setText(item.getTitle());
     }
 
-    public void updateList(List<NewsItem> news) {
-        newsItemList = null;
-        this.newsItemList = new ArrayList<>(news);
+    public void updateList(List<NewsData> news) {
+        newsDataList = null;
+        this.newsDataList = new ArrayList<>(news);
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return newsItemList.size();
+        return newsDataList.size();
     }
 }

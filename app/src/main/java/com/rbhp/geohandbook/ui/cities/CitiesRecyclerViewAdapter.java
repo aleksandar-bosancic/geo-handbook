@@ -8,21 +8,21 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rbhp.geohandbook.R;
-import com.rbhp.geohandbook.data.CityListItemData;
+import com.rbhp.geohandbook.data.CityData;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private final List<CityListItemData> cities;
+    private List<CityData> cities;
 
-    public CitiesRecyclerViewAdapter(){
+    public CitiesRecyclerViewAdapter(CitiesViewModel viewModel){
         cities = new ArrayList<>();
-        CityListItemData city1 = new CityListItemData("Banja Luka");
-        CityListItemData city2 = new CityListItemData("Prijedor");
-        CityListItemData city3 = new CityListItemData("Bijeljina");
-        CityListItemData city4 = new CityListItemData("Trebinje");
+        CityData city1 = new CityData("Banja Luka");
+        CityData city2 = new CityData("Prijedor");
+        CityData city3 = new CityData("Bijeljina");
+        CityData city4 = new CityData("Trebinje");
         cities.add(city1);
         cities.add(city2);
         cities.add(city3);
@@ -42,7 +42,7 @@ public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        CityListItemData city = cities.get(position);
+        CityData city = cities.get(position);
         CitiesRecyclerViewHolder viewHolder = (CitiesRecyclerViewHolder) holder;
         viewHolder.textView.setText(city.getName());
     }
@@ -50,5 +50,13 @@ public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
     @Override
     public int getItemCount() {
         return cities.size();
+    }
+
+    public List<CityData> getCities() {
+        return cities;
+    }
+
+    public void setCities(List<CityData> cities) {
+        this.cities = cities;
     }
 }

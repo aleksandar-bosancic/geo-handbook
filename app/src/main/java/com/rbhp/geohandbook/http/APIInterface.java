@@ -1,7 +1,5 @@
 package com.rbhp.geohandbook.http;
 
-import com.rbhp.geohandbook.R;
-import com.rbhp.geohandbook.data.CityListItemData;
 import com.rbhp.geohandbook.data.NewsFeed;
 
 import retrofit2.Call;

@@ -2,7 +2,7 @@ package com.rbhp.geohandbook.data;
 
 import com.google.gson.annotations.SerializedName;
 
-public class NewsItem {
+public class NewsData {
     @SerializedName("title")
     private String title;
     @SerializedName("pubDate")
