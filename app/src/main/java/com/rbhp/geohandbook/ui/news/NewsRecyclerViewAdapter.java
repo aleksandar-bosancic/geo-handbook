@@ -1,5 +1,7 @@
 package com.rbhp.geohandbook.ui.news;
 
+import android.annotation.SuppressLint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +18,7 @@ import java.util.List;
 
 public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private List<NewsData> newsDataList;
-    private NewsItemListener newsItemListener;
+    private final NewsItemListener newsItemListener;
 
     public NewsRecyclerViewAdapter(NewsItemListener newsItemListener) {
         this.newsItemListener = newsItemListener;
@@ -38,6 +40,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         viewHolder.getTitleText().setText(item.getTitle());
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     public void updateList(List<NewsData> news) {
         newsDataList = null;
         this.newsDataList = new ArrayList<>(news);

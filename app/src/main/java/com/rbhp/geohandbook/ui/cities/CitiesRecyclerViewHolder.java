@@ -9,13 +9,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rbhp.geohandbook.R;
 
-public class CitiesRecyclerViewHolder extends RecyclerView.ViewHolder {
+public class CitiesRecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    private final CityListener cityListener;
     TextView textView;
     Button button;
 
-    public CitiesRecyclerViewHolder(@NonNull View itemView) {
+    public CitiesRecyclerViewHolder(@NonNull View itemView, CityListener cityListener) {
         super(itemView);
+        this.cityListener = cityListener;
         textView = itemView.findViewById(R.id.textView);
         button = itemView.findViewById(R.id.sample_button);
+        itemView.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        this.cityListener.OnCityClick(getBindingAdapterPosition());
     }
 }

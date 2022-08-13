@@ -7,8 +7,8 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.rbhp.geohandbook.data.NewsFeed;
 import com.rbhp.geohandbook.data.NewsData;
+import com.rbhp.geohandbook.data.NewsFeed;
 import com.rbhp.geohandbook.http.APIInterface;
 import com.rbhp.geohandbook.http.RetrofitHttp;
 
@@ -39,9 +39,6 @@ public class NewsViewModel extends ViewModel {
                 if (response.body() != null) {
                     List<NewsData> items = response.body().getItems();
                     newsItemList.setValue(items);
-                    for (NewsData item : items) {
-                        Log.println(Log.ASSERT, "title", item.getTitle());
-                    }
                 }
 
             }

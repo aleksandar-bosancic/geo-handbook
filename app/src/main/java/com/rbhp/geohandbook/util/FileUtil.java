@@ -17,19 +17,22 @@ import java.util.List;
 
 public class FileUtil {
 
-    private FileUtil(){}
+    private FileUtil() {
+    }
 
-    public static List<CityData> LoadCityData(Context context) {
+    public static List<CityData> loadCityData(Context context) {
+        long time = System.currentTimeMillis();
         List<CityData> cities = new ArrayList<>();
         String content = "";
         try {
             content = IOUtils.toString(context.getResources().openRawResource(R.raw.cities), StandardCharsets.UTF_8);
+            IOUtils.close();
             Gson gson = new Gson();
             cities = Arrays.asList(gson.fromJson(content, CityData[].class));
-            Log.println(Log.ASSERT, "LOAD", "LOADED");
         } catch (IOException e) {
             Log.e("Io", "cannot can");
         }
+        Log.println(Log.ASSERT, "loading time", String.valueOf((System.currentTimeMillis() - time)));
         return cities;
     }
 }

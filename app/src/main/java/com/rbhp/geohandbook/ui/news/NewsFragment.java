@@ -21,7 +21,6 @@ import com.rbhp.geohandbook.databinding.FragmentNewsBinding;
 import java.util.Objects;
 
 public class NewsFragment extends Fragment implements NewsItemListener {
-
     private static final String TAG = "huha";
     private FragmentNewsBinding binding;
     private RecyclerView recyclerView;
@@ -42,7 +41,6 @@ public class NewsFragment extends Fragment implements NewsItemListener {
         recyclerView = root.findViewById(R.id.news_recycler_view);
         newsRecyclerViewAdapter = new NewsRecyclerViewAdapter(this);
         newsViewModel.getNewsItemList().observe(getViewLifecycleOwner(), newsItems -> {
-            Log.println(Log.ASSERT, TAG, "onCreateView: ovdje");
             newsRecyclerViewAdapter.updateList(newsItems);
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

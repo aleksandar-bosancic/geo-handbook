@@ -1,9 +1,11 @@
 package com.rbhp.geohandbook.ui.cities;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -13,10 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.databinding.FragmentCitiesBinding;
+import com.rbhp.geohandbook.ui.map.MapsFragment;
 import com.rbhp.geohandbook.util.FileUtil;
 
-public class CitiesFragment extends Fragment implements CityListener{
-
+public class CitiesFragment extends Fragment implements CityListener {
     private FragmentCitiesBinding binding;
     private RecyclerView recyclerView;
     private CitiesRecyclerViewAdapter citiesRecyclerViewAdapter;
@@ -32,14 +34,11 @@ public class CitiesFragment extends Fragment implements CityListener{
         View root = binding.getRoot();
         //Initializing RecyclerView
         recyclerView = root.findViewById(R.id.cities_recycler_view);
-        citiesRecyclerViewAdapter = new CitiesRecyclerViewAdapter(viewModel);
+        citiesRecyclerViewAdapter = new CitiesRecyclerViewAdapter(viewModel, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(citiesRecyclerViewAdapter);
-        citiesRecyclerViewAdapter.setCities(FileUtil.LoadCityData(getContext()));
+        citiesRecyclerViewAdapter.setCities(FileUtil.loadCityData(getContext()));
 
-//        Toast.makeText(getContext(), msg, Toast.LENGTH_SHORT).show();
-//        final TextView textView = binding.textHome;
-//        citiesViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
@@ -51,6 +50,13 @@ public class CitiesFragment extends Fragment implements CityListener{
 
     @Override
     public void OnCityClick(int position) {
-
+        Log.println(Log.ASSERT, "aaaa", "OnCityClick() called with: position = [" + position + "]");
+        MapsFragment mapsFragment = new MapsFragment(FileUtil.loadCityData(getContext()));
+        Toast.makeText(getContext(), "klik na grad", Toast.LENGTH_SHORT).show();
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_cities, mapsFragment)
+                .addToBackStack("Open map")
+                .commit();
     }
 }

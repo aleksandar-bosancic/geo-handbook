@@ -1,11 +1,13 @@
 package com.rbhp.geohandbook.data;
 
+import com.google.android.gms.maps.model.LatLng;
+
 public class CityData {
     String name;
     String description;
     long population;
     long size;
-    Coordinates coordinates;
+    LatLng coordinates;
     String imageUrl;
     String videoUrl;
 
@@ -45,11 +47,11 @@ public class CityData {
         this.size = size;
     }
 
-    public Coordinates getCoordinates() {
+    public LatLng getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(Coordinates coordinates) {
+    public void setCoordinates(LatLng coordinates) {
         this.coordinates = coordinates;
     }
 
@@ -69,8 +71,4 @@ public class CityData {
         this.videoUrl = videoUrl;
     }
 
-    private static class Coordinates {
-        float longitude;
-        float latitude;
-    }
 }
