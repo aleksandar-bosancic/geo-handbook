@@ -8,7 +8,11 @@
       "latitude": 44.769846,
       "longitude": 17.189170
     },
-    "image_url": "",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/b/b5/%D0%A2%D0%B2%D1%80%D1%92%D0%B0%D0%B2%D0%B0_%D0%9A%D0%B0%D1%81%D1%82%D0%B5%D0%BB_7.jpg",
+      "https://cityhostelbl.com/en/images/places/place1.jpg",
+      "https://tzmedia.b-cdn.net/media/images/ba/place/max/1506b09ff2f2a162cd19b9990afbd9ad.jpg?1602253069"
+    ],
     "video_url": ""
   },
   {
@@ -20,7 +24,11 @@
       "latitude": 44.979321,
       "longitude": 16.709160
     },
-    "image_url": "",
+    "image_urls": [
+      "https://www.riopricesaputovanja.com/v1/wp-content/uploads/2020/10/Prijedor-Bosna-i-Hercegovina.jpg",
+      "https://www.prijedorgrad.org/assets/images/5/naslovna_3-1d404a55.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Vv7mjvIEdYt0WMv5_XS708u4scLYPLqcxQ&usqp=CAU"
+    ],
     "video_url": ""
   },
   {
@@ -32,7 +40,11 @@
       "latitude": 44.757108,
       "longitude": 19.216191
     },
-    "image_url": "",
+    "image_urls": [
+      "https://upload.wikimedia.org/wikipedia/commons/b/b5/%D0%A2%D0%B2%D1%80%D1%92%D0%B0%D0%B2%D0%B0_%D0%9A%D0%B0%D1%81%D1%82%D0%B5%D0%BB_7.jpg",
+      "https://cityhostelbl.com/en/images/places/place1.jpg",
+      "https://tzmedia.b-cdn.net/media/images/ba/place/max/1506b09ff2f2a162cd19b9990afbd9ad.jpg?1602253069"
+    ],
     "video_url": ""
   }
 ]

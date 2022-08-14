@@ -2,13 +2,15 @@ package com.rbhp.geohandbook.data;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.List;
+
 public class CityData {
     String name;
     String description;
     long population;
     long size;
     LatLng coordinates;
-    String imageUrl;
+    List<String> imageUrlList;
     String videoUrl;
 
     public CityData(String name) {
@@ -55,12 +57,12 @@ public class CityData {
         this.coordinates = coordinates;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public List<String> getImageUrlList() {
+        return imageUrlList;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageUrlList(List<String> imageUrlList) {
+        this.imageUrlList = imageUrlList;
     }
 
     public String getVideoUrl() {

@@ -10,7 +10,7 @@
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2985" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/fragment_attractions.xml" value="0.34556159420289856" />
-        <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/fragment_cities.xml" value="0.17597765363128492" />
+        <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/fragment_cities.xml" value="0.25" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/fragment_dashboard.xml" value="0.23333333333333334" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/fragment_info.xml" value="0.34556159420289856" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/fragment_maps.xml" value="0.36666666666666664" />
@@ -18,6 +18,7 @@
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/fragment_settings.xml" value="0.34556159420289856" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/list_item_city.xml" value="0.264" />
+        <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/list_item_city_image.xml" value="0.2848731884057971" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/list_item_news.xml" value="0.5" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2985" />

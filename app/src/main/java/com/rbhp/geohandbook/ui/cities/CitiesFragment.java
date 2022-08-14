@@ -11,7 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
+import androidx.viewpager.widget.PagerTabStrip;
 
 import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.databinding.FragmentCitiesBinding;
@@ -27,6 +30,7 @@ public class CitiesFragment extends Fragment implements CityListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+
         //Viewmodel for fragment Cities
         viewModel = new ViewModelProvider(this).get(CitiesViewModel.class);
         //Databinding
@@ -35,8 +39,12 @@ public class CitiesFragment extends Fragment implements CityListener {
         //Initializing RecyclerView
         recyclerView = root.findViewById(R.id.cities_recycler_view);
         citiesRecyclerViewAdapter = new CitiesRecyclerViewAdapter(viewModel, this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
         recyclerView.setAdapter(citiesRecyclerViewAdapter);
+
+        SnapHelper snapHelper = new PagerSnapHelper();
+        snapHelper.attachToRecyclerView(recyclerView);
+
         citiesRecyclerViewAdapter.setCities(FileUtil.loadCityData(getContext()));
 
         return root;

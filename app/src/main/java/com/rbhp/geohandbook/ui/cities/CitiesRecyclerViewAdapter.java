@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rbhp.geohandbook.R;
@@ -13,9 +15,10 @@ import com.rbhp.geohandbook.data.CityData;
 
 import java.util.List;
 
-public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<CitiesRecyclerViewHolder> {
     private List<CityData> cities;
     private final CityListener cityListener;
+
 
     public CitiesRecyclerViewAdapter(CitiesViewModel viewModel, CityListener cityListener) {
         this.cityListener = cityListener;
@@ -23,17 +26,19 @@ public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_city, parent, false);
-        return new CitiesRecyclerViewHolder(view, cityListener);
+    public CitiesRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        ViewDataBinding binding = DataBindingUtil.inflate(
+                LayoutInflater.from(parent.getContext()),
+                R.layout.list_item_city,
+                parent,
+                false);
+        return new CitiesRecyclerViewHolder(binding.getRoot(), cityListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CitiesRecyclerViewHolder holder, int position) {
         CityData city = cities.get(position);
-        CitiesRecyclerViewHolder viewHolder = (CitiesRecyclerViewHolder) holder;
-        viewHolder.textView.setText(city.getName());
-        Log.println(Log.ASSERT, "cities", "bindviewholder");
+        holder.bind(city);
     }
 
     @Override
