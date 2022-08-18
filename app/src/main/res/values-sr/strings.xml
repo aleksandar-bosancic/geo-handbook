@@ -8,4 +8,6 @@
     <string name="title_info">Informacije</string>
     <string name="title_map">Mapa</string>
     <string name="city_image">Slika grada</string>
+    <string name="population">Populacija</string>
+    <string name="area">Površina</string>
 </resources>

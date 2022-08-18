@@ -1,5 +1,7 @@
 package com.rbhp.geohandbook.ui.cities;
 
+import com.rbhp.geohandbook.data.CityData;
+
 public interface CityListener {
-    void OnCityClick(int position);
+    void onCityClick(CityData city);
 }

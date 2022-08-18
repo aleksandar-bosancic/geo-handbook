@@ -1,19 +1,19 @@
 [
   {
     "name": "Banja Luka",
-    "description": "grad",
+    "description": "Pod nazivom Banja Luka, grad se prvi put spominje 6. februara 1494. godine u Povelji ugarskog kralja Vladislava II Jagelovića. Poslije rasprava koje su vodili filolozi i istoričari, utvrđeno je da ime grada potiče od starog pridjeva „banj“ – banov, koji je davno iščezao iz našeg jezika, a zadržao se samo u nazivu grada, pa je tom pridjevu dodata imenica „luka“, što znači ravnica, odnosno cijeli naziv grada potiče od složenice „Banova ravnica“. Oduvijek uz Vrbas, na obje njegove strane razvijale su se još od paleolitskog perioda naselja različitih plemena, koja su se u ovoj blagonaklonoj dolini zadržavala, živjela i razvijala. Pouzdano se zna da je u predrimskom i rimskom periodu ovo područje naseljavalo ilirsko pleme Mezeja, koji su zajedno sa ovim prostorima uključeni u rimsku pokrajinu Ilirik.\n\nBanja Luka ili Banjaluka je gradsko naselje, odnosno naseljeno mjesto u sastavu grada Banje Luke kao jedinice lokalne samouprave u Republici Srpskoj (Bosna i Hercegovina). Predstavlja politički, administrativni, finansijski, univerzitetski i kulturni centar Republike Srpske.\n\nBanja Luka je nekada bila snažan privredni centar sa razvijenom mašinskom, tekstilnom, prehrambenom, drvoprerađivačkom i elektroindustrijom. Ratna zbivanja (1992—1995) i poslijeratna društvena tranzicija uzrokovali su propadanje većine industrijskih kapaciteta i tržišta. U ovom gradu i njegovoj okolini preplitale su se različite kulture, običaji i uticaji. Sve to je ostavilo traga na arhitekturi pojedinih dijelova grada, ali i na velikom broju kulturno-istorijskih spomenika kao svjedoka različitih epoha i ljudskog stvaralaštva. Zbog mnogobrojnih zelenih površina (parkova i aleja), Banja Luka je poznata kao grad zelenila. Dan grada Banja Luke je 22. april . Na taj dan je 1945. godine, Šesta krajiška brigada, na čelu sa komandantom Milančićem Miljevićem, umarširala trijumfalno u Banjaluku, oslobodivši je od fašista.\n\nBanja Luka je smještena na obalama Vrbasa, koji u ovom gradu gubi osobine planinske rijeke i ulazi u niziju na svom putu ka ušću u Savu. Vrbas u Banjoj Luci prima pritoke Suturliju, Crkvenu i Vrbanju. Središnji dio grada leži na nadmorskoj visini od 163 m i okružen je tercijarnim brežuljcima. Grad se u početku razvijao nizvodno od nekadašnjeg Gornjeg Šehera prateći tok Vrbasa, a stambena naselja koja su se gradila poslije Drugog svjetskog rata razvijala su se u širinu prema brdima koja okružuju urbano jezgro. Banja Luka je posebno izložena riziku od zemljotresa, a najsnažniji zemljotres u ovom gradu zabilježen je 27. oktobra 1969. godine (6,3 rihtera). Prvi zabilježeni veći zemljotres je pogodio Banju Luku 1888, a njegova magnituda je iznosila 5,5 stepeni Rihterove skale. Godine 1935. potres je bio jačine 5,5 rihtera, a 1981. oko 5,4 rihtera.\n\nKlima Banje Luke je umjerenokontinentalna, uz uticaj klime panonskog pojasa. Srednja godišnja temperatura je 10,7 °C, srednja januarska −0,8 °C, dok je srednja julska 21,3 °C. Srednja godišnja oblačnost iznosi 62%. Banjolučki kraj odlikuju izrazite zime, topla ljeta, znatna kolebanja temperature, te obilne padavine početkom ljeta. Najčešći su vjetrovi iz sjevernog kvadranta, a veći dio godine u Banjoj Luci vlada tiho vrijeme. ",
+
     "population": 200000,
     "size": 1000,
     "coordinates": {
       "latitude": 44.769846,
       "longitude": 17.189170
     },
-    "image_urls": [
-      "https://upload.wikimedia.org/wikipedia/commons/b/b5/%D0%A2%D0%B2%D1%80%D1%92%D0%B0%D0%B2%D0%B0_%D0%9A%D0%B0%D1%81%D1%82%D0%B5%D0%BB_7.jpg",
+    "imageUrls": [
       "https://cityhostelbl.com/en/images/places/place1.jpg",
       "https://tzmedia.b-cdn.net/media/images/ba/place/max/1506b09ff2f2a162cd19b9990afbd9ad.jpg?1602253069"
     ],
-    "video_url": ""
+    "videoUrl": ""
   },
   {
     "name": "Prijedor",
@@ -24,12 +24,12 @@
       "latitude": 44.979321,
       "longitude": 16.709160
     },
-    "image_urls": [
+    "imageUrls": [
       "https://www.riopricesaputovanja.com/v1/wp-content/uploads/2020/10/Prijedor-Bosna-i-Hercegovina.jpg",
       "https://www.prijedorgrad.org/assets/images/5/naslovna_3-1d404a55.jpg",
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Vv7mjvIEdYt0WMv5_XS708u4scLYPLqcxQ&usqp=CAU"
     ],
-    "video_url": ""
+    "videoUrl": ""
   },
   {
     "name": "Bijeljina",
@@ -40,11 +40,10 @@
       "latitude": 44.757108,
       "longitude": 19.216191
     },
-    "image_urls": [
-      "https://upload.wikimedia.org/wikipedia/commons/b/b5/%D0%A2%D0%B2%D1%80%D1%92%D0%B0%D0%B2%D0%B0_%D0%9A%D0%B0%D1%81%D1%82%D0%B5%D0%BB_7.jpg",
+    "imageUrls": [
       "https://cityhostelbl.com/en/images/places/place1.jpg",
       "https://tzmedia.b-cdn.net/media/images/ba/place/max/1506b09ff2f2a162cd19b9990afbd9ad.jpg?1602253069"
     ],
-    "video_url": ""
+    "videoUrl": ""
   }
 ]

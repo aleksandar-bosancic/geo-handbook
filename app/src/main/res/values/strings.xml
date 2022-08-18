@@ -7,4 +7,6 @@
     <string name="title_info">Info</string>
     <string name="title_map">Map</string>
     <string name="city_image">City image</string>
+    <string name="population">Population</string>
+    <string name="area">Area</string>
 </resources>

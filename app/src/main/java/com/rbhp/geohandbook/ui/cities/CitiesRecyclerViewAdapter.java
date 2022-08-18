@@ -1,8 +1,6 @@
 package com.rbhp.geohandbook.ui.cities;
 
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -16,12 +14,12 @@ import com.rbhp.geohandbook.data.CityData;
 import java.util.List;
 
 public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<CitiesRecyclerViewHolder> {
+    private final CitiesViewModel viewModel;
     private List<CityData> cities;
-    private final CityListener cityListener;
 
 
-    public CitiesRecyclerViewAdapter(CitiesViewModel viewModel, CityListener cityListener) {
-        this.cityListener = cityListener;
+    public CitiesRecyclerViewAdapter(CitiesViewModel viewModel) {
+        this.viewModel = viewModel;
     }
 
     @NonNull
@@ -32,13 +30,13 @@ public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<CitiesRecycl
                 R.layout.list_item_city,
                 parent,
                 false);
-        return new CitiesRecyclerViewHolder(binding.getRoot(), cityListener);
+        return new CitiesRecyclerViewHolder(binding.getRoot());
     }
 
     @Override
     public void onBindViewHolder(@NonNull CitiesRecyclerViewHolder holder, int position) {
         CityData city = cities.get(position);
-        holder.bind(city);
+        holder.bind(city, viewModel);
     }
 
     @Override

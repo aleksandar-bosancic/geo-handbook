@@ -10,7 +10,7 @@ public class CityData {
     long population;
     long size;
     LatLng coordinates;
-    List<String> imageUrlList;
+    List<String> imageUrls;
     String videoUrl;
 
     public CityData(String name) {
@@ -57,12 +57,12 @@ public class CityData {
         this.coordinates = coordinates;
     }
 
-    public List<String> getImageUrlList() {
-        return imageUrlList;
+    public List<String> getImageUrls() {
+        return imageUrls;
     }
 
-    public void setImageUrlList(List<String> imageUrlList) {
-        this.imageUrlList = imageUrlList;
+    public void setImageUrls(List<String> imageUrls) {
+        this.imageUrls = imageUrls;
     }
 
     public String getVideoUrl() {
@@ -73,4 +73,16 @@ public class CityData {
         this.videoUrl = videoUrl;
     }
 
+    @Override
+    public String toString() {
+        return "CityData{" +
+                "name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", population=" + population +
+                ", size=" + size +
+                ", coordinates=" + coordinates +
+                ", imageUrlList=" + imageUrls +
+                ", videoUrl='" + videoUrl + '\'' +
+                '}';
+    }
 }

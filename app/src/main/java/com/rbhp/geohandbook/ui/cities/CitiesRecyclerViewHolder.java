@@ -13,34 +13,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.data.CityData;
+import com.squareup.picasso.Picasso;
 
-public class CitiesRecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private final CityListener cityListener;
+public class CitiesRecyclerViewHolder extends RecyclerView.ViewHolder {
     private CityData city;
-    TextView textView;
-    Button button;
-    ImageView cityImageView;
-    ViewDataBinding binding;
+    private final TextView textView;
+    private final Button button;
+    private final ViewDataBinding binding;
+    private final ImageView imageView;
 
-    public CitiesRecyclerViewHolder(@NonNull View itemView, CityListener cityListener) {
+    public CitiesRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
         binding = DataBindingUtil.bind(itemView);
-        this.cityListener = cityListener;
         textView = itemView.findViewById(R.id.title_text_view);
-        cityImageView = itemView.findViewById(R.id.city_image_view);
         button = itemView.findViewById(R.id.show_on_map_button);
-        button.setOnClickListener(this);
-        itemView.setOnClickListener(this);
+        imageView = itemView.findViewById(R.id.city_image_view);
     }
 
-    public void bind(Object object) {
+    public void bind(Object object, CityListener listener) {
         binding.setVariable(BR.city, object);
+        binding.setVariable(BR.listener, listener);
+        binding.setVariable(BR.viewModel, listener);
         binding.executePendingBindings();
-    }
-
-    @Override
-    public void onClick(View v) {
-        this.cityListener.OnCityClick(getBindingAdapterPosition());
     }
 
     public CityData getCity() {

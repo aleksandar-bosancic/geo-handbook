@@ -1,6 +1,9 @@
 package com.rbhp.geohandbook.util;
 
+import android.app.Application;
 import android.content.Context;
+import android.content.res.Resources;
+import android.os.Looper;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -25,6 +28,7 @@ public class FileUtil {
         List<CityData> cities = new ArrayList<>();
         String content = "";
         try {
+            Log.println(Log.ASSERT, "aaa", Looper.myLooper().toString());
             content = IOUtils.toString(context.getResources().openRawResource(R.raw.cities), StandardCharsets.UTF_8);
             IOUtils.close();
             Gson gson = new Gson();

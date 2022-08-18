@@ -35,18 +35,6 @@ public class MapsFragment extends Fragment {
         }
     };
 
-//    private OnMapReadyCallback callback = new OnMapReadyCallback() {
-//        @Override
-//        public void onMapReady(GoogleMap googleMap) {
-//            MarkerOptions markerOptions = new MarkerOptions();
-//            for (CityData city : cities){
-//                LatLng latLng = city.getCoordinates();
-//                googleMap.addMarker(markerOptions.position(latLng).title(city.getName()));
-//                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 7));
-//            }
-//        }
-//    };
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
