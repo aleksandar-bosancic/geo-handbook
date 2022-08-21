@@ -1,6 +1,7 @@
 package com.rbhp.geohandbook;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -13,8 +14,9 @@ import androidx.navigation.ui.NavigationUI;
 import com.rbhp.geohandbook.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-
+    private NavController navController;
     private ActivityMainBinding binding;
+    AppBarConfiguration appBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +27,23 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+        appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_cities, R.id.navigation_news,R.id.navigation_attractions, R.id.navigation_info, R.id.navigation_settings)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        binding = null;
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        Log.println(Log.ASSERT, "asdfasdf", String.valueOf(navController.getCurrentBackStackEntry().toString()));
+        return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp();
+    }
 }

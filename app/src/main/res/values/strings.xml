@@ -9,4 +9,7 @@
     <string name="city_image">City image</string>
     <string name="population">Population</string>
     <string name="area">Area</string>
+    <string name="description">Description</string>
+    <string name="show_on_map">Show on map</string>
+    <string name="show_weather">Show weather</string>
 </resources>

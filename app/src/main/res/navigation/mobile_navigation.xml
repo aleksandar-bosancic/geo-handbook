@@ -12,9 +12,12 @@
         tools:layout="@layout/fragment_cities">
         <action
             android:id="@+id/navigate_to_maps"
-            app:destination="@id/maps_navigation"
+            app:destination="@id/navigation_maps"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/navigate_to_city_images"
+            app:destination="@id/navigation_city_images" />
     </fragment>
 
     <fragment
@@ -42,7 +45,7 @@
         tools:layout="@layout/fragment_settings" />
 
     <fragment
-        android:id="@+id/maps_navigation"
+        android:id="@+id/navigation_maps"
         android:name="com.rbhp.geohandbook.ui.map.MapsFragment"
         android:label="@string/title_map"
         tools:layout="@layout/fragment_maps">
@@ -51,6 +54,17 @@
             app:destination="@id/navigation_cities"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_city_images"
+        android:name="com.rbhp.geohandbook.ui.images.CityImagesFragment"
+        android:label="City Images"
+        tools:layout="@layout/fragment_city_images">
+        <action
+            android:id="@+id/navigate_to_cities"
+            app:destination="@id/navigation_cities"
+            app:popUpTo="@id/navigate_to_cities" />
     </fragment>
 
 

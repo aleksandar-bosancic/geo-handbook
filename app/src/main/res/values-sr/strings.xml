@@ -10,4 +10,7 @@
     <string name="city_image">Slika grada</string>
     <string name="population">Populacija</string>
     <string name="area">Površina</string>
+    <string name="description">Opis</string>
+    <string name="show_on_map">Prikaži na mapi</string>
+    <string name="show_weather">Prikaži vrijeme</string>
 </resources>

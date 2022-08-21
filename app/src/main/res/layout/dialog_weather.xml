@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.rbhp.geohandbook.data.Converter" />
+
+        <import type="com.rbhp.geohandbook.data.WeatherData" />
+
+        <import type="com.rbhp.geohandbook.ui.cities.CitiesViewModel" />
+
+        <variable
+            name="converter"
+            type="Converter" />
+
+        <variable
+            name="weatherData"
+            type="WeatherData" />
+
+        <variable
+            name="viewModel"
+            type="CitiesViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/city_card_corner_radius"
+        app:cardElevation="@dimen/city_card_elevation"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/weather_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:weatherUrl="@{weatherData}"
+                    android:contentDescription="@{weatherData.weatherDescription.get(0).main}" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{weatherData.weatherDescription.get(0).main}"
+                    android:textSize="24sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:drawableLeft="@drawable/ic_thermometer"
+                    android:text="@{Converter.tempRoundedToString(weatherData.weatherInfo.temp)}"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:drawableTint="?attr/colorPrimary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="0.5"
+                    android:drawableLeft="@drawable/ic_humidity"
+                    android:text="@{Converter.humidityToString(weatherData.weatherInfo.humidity)}"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    app:drawableTint="?attr/colorPrimary" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

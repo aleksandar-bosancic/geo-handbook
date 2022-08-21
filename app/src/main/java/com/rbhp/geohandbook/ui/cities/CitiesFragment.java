@@ -1,14 +1,15 @@
 package com.rbhp.geohandbook.ui.cities;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.PagerSnapHelper;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,8 +17,10 @@ import androidx.recyclerview.widget.SnapHelper;
 
 import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.data.CityData;
+import com.rbhp.geohandbook.data.WeatherData;
 import com.rbhp.geohandbook.databinding.FragmentCitiesBinding;
 import com.rbhp.geohandbook.ui.map.MapsFragment;
+import com.rbhp.geohandbook.ui.weather.WeatherDialog;
 
 public class CitiesFragment extends Fragment {
     private FragmentCitiesBinding binding;
@@ -28,7 +31,7 @@ public class CitiesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        viewModel = new ViewModelProvider(this).get(CitiesViewModel.class);
+        viewModel = new ViewModelProvider(requireActivity()).get(CitiesViewModel.class);
 
         binding = FragmentCitiesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -42,12 +45,22 @@ public class CitiesFragment extends Fragment {
                 cityData -> citiesRecyclerViewAdapter.setCities(cityData));
 
         viewModel.getClickedCity().observe(getViewLifecycleOwner(), this::openCityOnMap);
+        viewModel.getClickedCityWeather().observe(getViewLifecycleOwner(), this::openWeatherDialog);
+        viewModel.getClickedCityImage().observe(getViewLifecycleOwner(), this::openCityImages);
 
         SnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
 
         return root;
     }
+
+    private void openWeatherDialog(WeatherData weatherData) {
+        DialogFragment dialog = new WeatherDialog(weatherData, viewModel);
+        dialog.show(requireActivity().getSupportFragmentManager(), "Weather");
+    }
+
+    //TODO video streaming
+    //TODO napravi mape preko navigation
 
     @Override
     public void onDestroyView() {
@@ -59,8 +72,8 @@ public class CitiesFragment extends Fragment {
         if (cityData == null) {
             return;
         }
-        Log.println(Log.ASSERT, "fragment", "clicked" + cityData.getName());
-        if (getActivity() != null){
+//        Navigation.findNavController(requireView()).navigate(R.id.navigate_to_maps);
+        if (getActivity() != null) {
             MapsFragment mapsFragment = new MapsFragment(viewModel.getCityLiveData().getValue());
             getActivity().getSupportFragmentManager()
                     .beginTransaction()
@@ -68,5 +81,12 @@ public class CitiesFragment extends Fragment {
                     .addToBackStack("Open map")
                     .commit();
         }
+    }
+
+    private void openCityImages(CityData cityData) {
+        if (cityData == null){
+            return;
+        }
+        Navigation.findNavController(requireView()).navigate(R.id.navigate_to_city_images);
     }
 }
