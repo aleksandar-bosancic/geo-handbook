@@ -10,6 +10,7 @@ import androidx.databinding.BindingAdapter;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
+import com.google.gson.reflect.TypeToken;
 import com.rbhp.geohandbook.data.CityData;
 import com.rbhp.geohandbook.data.SingleLiveEvent;
 import com.rbhp.geohandbook.data.WeatherData;
@@ -37,7 +38,8 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
         super(application);
         clickedCityMap = new MutableLiveData<>();
         cityListMutableLiveData = new MutableLiveData<>();
-        cityListMutableLiveData.setValue(FileUtil.loadCityData(getApplication().getApplicationContext()));
+        cityListMutableLiveData.setValue(FileUtil.loadCityData(getApplication().getApplicationContext(),
+                new TypeToken<List<CityData>>(){}.getType()));
         clickedCityWeather = new SingleLiveEvent<>();
         clickedCityImage = new MutableLiveData<>();
     }
@@ -53,7 +55,7 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
         if (weatherData == null) {
             return;
         }
-        Picasso.get().load(WEATHER_IMAGE_URL + weatherData.weatherDescription.get(0).icon + PNG_EXTENSION_STRING)
+        Picasso.get().load(WEATHER_IMAGE_URL + weatherData.getWeatherDescription().get(0).icon + PNG_EXTENSION_STRING)
                 .resize(160, 160)
                 .into(imageView);
     }

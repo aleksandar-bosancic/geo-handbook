@@ -4,18 +4,25 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class WeatherData {
     @SerializedName("weather")
-    public List<WeatherDescription> weatherDescription;
+    private List<WeatherDescription> weatherDescription;
     @SerializedName("main")
-    public WeatherInfo weatherInfo;
+    private WeatherInfo weatherInfo;
+
+    public List<WeatherDescription> getWeatherDescription() {
+        return weatherDescription;
+    }
+
+    public void setWeatherDescription(List<WeatherDescription> weatherDescription) {
+        this.weatherDescription = weatherDescription;
+    }
+
+    public WeatherInfo getWeatherInfo() {
+        return weatherInfo;
+    }
+
+    public void setWeatherInfo(WeatherInfo weatherInfo) {
+        this.weatherInfo = weatherInfo;
+    }
 }

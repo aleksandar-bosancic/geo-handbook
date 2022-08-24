@@ -37,7 +37,7 @@ public class CitiesFragment extends Fragment {
         View root = binding.getRoot();
 
         recyclerView = root.findViewById(R.id.cities_recycler_view);
-        citiesRecyclerViewAdapter = new CitiesRecyclerViewAdapter(viewModel);
+        citiesRecyclerViewAdapter = new     CitiesRecyclerViewAdapter(viewModel);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 RecyclerView.HORIZONTAL, false));
         recyclerView.setAdapter(citiesRecyclerViewAdapter);

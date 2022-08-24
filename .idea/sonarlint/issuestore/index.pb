@@ -42,3 +42,9 @@ h
 8app/src/main/java/com/rbhp/geohandbook/MainActivity.java,2\0\20bc9566652c9e62185e14a9f3d9ec469df038ff
 t
 Dapp/src/main/java/com/rbhp/geohandbook/ui/weather/WeatherDialog.java,8\7\8742b688d52f3eec8880eaf998c23768499ae03d
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+ˆ
+Xapp/src/main/java/com/rbhp/geohandbook/ui/attractions/AttractionsRecyclerViewHolder.java,0\a\0a9373a7d91b884be30eebb0e7ffccdf9ab3c140
+x
+Happ/src/main/java/com/rbhp/geohandbook/ui/images/CityImagesFragment.java,1\6\1667cb15414b56005f4d001716251d32132f6540

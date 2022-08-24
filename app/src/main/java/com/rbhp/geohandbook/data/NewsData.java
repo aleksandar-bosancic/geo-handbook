@@ -84,7 +84,7 @@ public class NewsData {
         this.enclosure = enclosure;
     }
 
-    public class Enclosure{
+    public class Enclosure {
         @SerializedName("link")
         private String link;
         @SerializedName("type")
