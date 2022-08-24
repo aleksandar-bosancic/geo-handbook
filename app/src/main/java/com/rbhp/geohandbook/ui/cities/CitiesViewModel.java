@@ -1,7 +1,6 @@
 package com.rbhp.geohandbook.ui.cities;
 
 import android.app.Application;
-import android.content.res.Resources;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -11,8 +10,8 @@ import androidx.databinding.BindingAdapter;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.data.CityData;
+import com.rbhp.geohandbook.data.SingleLiveEvent;
 import com.rbhp.geohandbook.data.WeatherData;
 import com.rbhp.geohandbook.http.APIInterface;
 import com.rbhp.geohandbook.http.RetrofitHttp;
@@ -29,17 +28,17 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
     private static final String WEATHER_IMAGE_URL = "https://openweathermap.org/img/w/";
     private static final String PNG_EXTENSION_STRING = ".png";
     private final MutableLiveData<List<CityData>> cityListMutableLiveData;
-    private final MutableLiveData<CityData> clickedCity;
-    private final MutableLiveData<WeatherData> clickedCityWeather;
+    private final MutableLiveData<CityData> clickedCityMap;
+    private final SingleLiveEvent<WeatherData> clickedCityWeather;
     private final MutableLiveData<CityData> clickedCityImage;
 
 
     public CitiesViewModel(Application application) {
         super(application);
-        clickedCity = new MutableLiveData<>();
+        clickedCityMap = new MutableLiveData<>();
         cityListMutableLiveData = new MutableLiveData<>();
         cityListMutableLiveData.setValue(FileUtil.loadCityData(getApplication().getApplicationContext()));
-        clickedCityWeather = new MutableLiveData<>();
+        clickedCityWeather = new SingleLiveEvent<>();
         clickedCityImage = new MutableLiveData<>();
     }
 
@@ -51,6 +50,9 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
 
     @BindingAdapter({"weatherUrl"})
     public static void loadWeatherIcon(ImageView imageView, WeatherData weatherData) {
+        if (weatherData == null) {
+            return;
+        }
         Picasso.get().load(WEATHER_IMAGE_URL + weatherData.weatherDescription.get(0).icon + PNG_EXTENSION_STRING)
                 .resize(160, 160)
                 .into(imageView);
@@ -63,8 +65,7 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
 
     @Override
     public void onCityClick(CityData city) {
-        clickedCity.setValue(city);
-        clickedCity.setValue(null);
+        clickedCityMap.setValue(city);
     }
 
     public void onWeatherClick(CityData cityData) {
@@ -82,31 +83,41 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
 
                     @Override
                     public void onFailure(@NonNull Call<WeatherData> call, @NonNull Throwable t) {
-                        Log.println(Log.ASSERT, "yajeb", "yajeb");
+                        Log.e("NETWORK", "Could not fetch weather data");
+                        Toast.makeText(getApplication().getApplicationContext(),
+                                "Could not fetch weather data", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
 
     public void imageOnClick(CityData cityData) {
         clickedCityImage.setValue(cityData);
-//        clickedCityImage.setValue(null);
     }
 
-    public MutableLiveData<CityData> getClickedCity() {
-        return clickedCity;
+    public MutableLiveData<CityData> getClickedCityMap() {
+        return clickedCityMap;
+    }
+
+    public void setClickedCityMap(CityData cityData) {
+        clickedCityMap.setValue(cityData);
     }
 
     public MutableLiveData<WeatherData> getClickedCityWeather() {
         return clickedCityWeather;
     }
 
+    public void setClickedCityWeather(WeatherData weatherData) {
+        clickedCityWeather.setValue(weatherData);
+    }
+
     public MutableLiveData<CityData> getClickedCityImage() {
         return clickedCityImage;
     }
 
-    public void setClickedCityWeather(WeatherData weatherData) {
-        clickedCityWeather.setValue(weatherData);
+    public void setClickedCityImage(CityData cityData) {
+        clickedCityImage.setValue(cityData);
     }
+
 
     public MutableLiveData<List<CityData>> getCityLiveData() {
         return cityListMutableLiveData;
@@ -114,9 +125,5 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
 
     public void setCityListMutableLiveData(List<CityData> cityList) {
         cityListMutableLiveData.setValue(cityList);
-    }
-
-    public void setClickedCityImage(CityData cityData){
-        clickedCityImage.setValue(cityData);
     }
 }

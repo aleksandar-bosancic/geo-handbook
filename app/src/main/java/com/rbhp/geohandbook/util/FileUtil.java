@@ -23,6 +23,7 @@ public class FileUtil {
     private FileUtil() {
     }
 
+    //TODO Generify
     public static List<CityData> loadCityData(Context context) {
         long time = System.currentTimeMillis();
         List<CityData> cities = new ArrayList<>();

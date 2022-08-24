@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Tvrđava Kastel",
+    "description": "Tvrđava i jes",
+    "coordinates": {
+      "latitude": 44.769846,
+      "longitude": 17.189170
+    },
+    "imageUrl": "https://nightoffortresses.org/wp-content/uploads/2022/04/Kastel-1-1.jpeg"
+  },
+  {
+    "name": "Etno Selo Stanišići",
+    "description": "Selo etno",
+    "coordinates": {
+      "latitude": 44.757108,
+      "longitude": 19.216191
+    },
+    "imageUrl": "https://www.etno-selo.com/images/pocetna-1.jpg"
+  }
+]

@@ -18,12 +18,4 @@ public class WeatherData {
     public List<WeatherDescription> weatherDescription;
     @SerializedName("main")
     public WeatherInfo weatherInfo;
-
-    @Override
-    public String toString() {
-        return "WeatherData{" +
-                "weatherDescription=" + weatherDescription +
-                ", weatherInfo=" + weatherInfo +
-                '}';
-    }
 }

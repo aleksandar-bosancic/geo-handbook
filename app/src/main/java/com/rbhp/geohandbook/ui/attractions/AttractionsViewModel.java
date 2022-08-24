@@ -1,7 +1,27 @@
 package com.rbhp.geohandbook.ui.attractions;
 
-import androidx.lifecycle.ViewModel;
+import android.app.Application;
 
-public class AttractionsViewModel extends ViewModel {
-    // TODO: Implement the ViewModel
+import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.MutableLiveData;
+
+import com.rbhp.geohandbook.data.AttractionData;
+
+import java.util.List;
+
+public class AttractionsViewModel extends AndroidViewModel {
+    private MutableLiveData<List<AttractionData>> attractionLiveData;
+
+    public AttractionsViewModel(Application application){
+        super(application);
+        attractionLiveData = new MutableLiveData<>();
+    }
+
+    public MutableLiveData<List<AttractionData>> getAttractionLiveData() {
+        return attractionLiveData;
+    }
+
+    public void setAttractionLiveData(MutableLiveData<List<AttractionData>> attractionLiveData) {
+        this.attractionLiveData = attractionLiveData;
+    }
 }

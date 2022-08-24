@@ -44,7 +44,7 @@ public class CitiesFragment extends Fragment {
         viewModel.getCityLiveData().observe(getViewLifecycleOwner(),
                 cityData -> citiesRecyclerViewAdapter.setCities(cityData));
 
-        viewModel.getClickedCity().observe(getViewLifecycleOwner(), this::openCityOnMap);
+        viewModel.getClickedCityMap().observe(getViewLifecycleOwner(), this::openCityOnMap);
         viewModel.getClickedCityWeather().observe(getViewLifecycleOwner(), this::openWeatherDialog);
         viewModel.getClickedCityImage().observe(getViewLifecycleOwner(), this::openCityImages);
 
@@ -60,7 +60,6 @@ public class CitiesFragment extends Fragment {
     }
 
     //TODO video streaming
-    //TODO napravi mape preko navigation
 
     @Override
     public void onDestroyView() {
@@ -72,19 +71,11 @@ public class CitiesFragment extends Fragment {
         if (cityData == null) {
             return;
         }
-//        Navigation.findNavController(requireView()).navigate(R.id.navigate_to_maps);
-        if (getActivity() != null) {
-            MapsFragment mapsFragment = new MapsFragment(viewModel.getCityLiveData().getValue());
-            getActivity().getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_cities, mapsFragment)
-                    .addToBackStack("Open map")
-                    .commit();
-        }
+        Navigation.findNavController(requireView()).navigate(R.id.navigate_to_maps);
     }
 
     private void openCityImages(CityData cityData) {
-        if (cityData == null){
+        if (cityData == null) {
             return;
         }
         Navigation.findNavController(requireView()).navigate(R.id.navigate_to_city_images);

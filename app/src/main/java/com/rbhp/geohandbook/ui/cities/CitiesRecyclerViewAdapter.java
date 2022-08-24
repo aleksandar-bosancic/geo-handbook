@@ -6,12 +6,15 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.data.CityData;
 
 import java.util.List;
+import java.util.Objects;
 
 public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<CitiesRecyclerViewHolder> {
     private final CitiesViewModel viewModel;
@@ -35,13 +38,13 @@ public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<CitiesRecycl
 
     @Override
     public void onBindViewHolder(@NonNull CitiesRecyclerViewHolder holder, int position) {
-        CityData city = cities.get(position);
+        CityData city = Objects.requireNonNull(viewModel.getCityLiveData().getValue()).get(position);//cities.get(position);
         holder.bind(city, viewModel);
     }
 
     @Override
     public int getItemCount() {
-        return cities.size();
+        return Objects.requireNonNull(viewModel.getCityLiveData().getValue()).size();//return cities.size();
     }
 
     public List<CityData> getCities() {
