@@ -4,7 +4,9 @@ import android.content.Context;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.rbhp.geohandbook.R;
+import com.rbhp.geohandbook.data.CityData;
 
 import org.apache.commons.io.IOUtils;
 
@@ -23,8 +25,11 @@ public class FileUtil {
         long time = System.currentTimeMillis();
         List<T> cities = new ArrayList<>();
         String content = "";
+        boolean isCityType = TypeToken.get(typeToken).getType().toString().contains("CityData");
         try {
-            content = IOUtils.toString(context.getResources().openRawResource(R.raw.cities), StandardCharsets.UTF_8);
+            content = (isCityType) ?
+                    IOUtils.toString(context.getResources().openRawResource(R.raw.cities), StandardCharsets.UTF_8) :
+                    IOUtils.toString(context.getResources().openRawResource(R.raw.attractions), StandardCharsets.UTF_8);
             IOUtils.close();
             Gson gson = new Gson();
             cities = gson.fromJson(content, typeToken);

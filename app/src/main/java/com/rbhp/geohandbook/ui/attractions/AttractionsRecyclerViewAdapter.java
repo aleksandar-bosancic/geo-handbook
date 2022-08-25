@@ -13,6 +13,7 @@ import com.rbhp.geohandbook.data.AttractionData;
 
 public class AttractionsRecyclerViewAdapter extends RecyclerView.Adapter<AttractionsRecyclerViewHolder> {
     private final AttractionsViewModel viewModel;
+    private boolean favouritesSelected = false;
 
     public AttractionsRecyclerViewAdapter(AttractionsViewModel viewModel) {
         this.viewModel = viewModel;
@@ -31,12 +32,25 @@ public class AttractionsRecyclerViewAdapter extends RecyclerView.Adapter<Attract
 
     @Override
     public void onBindViewHolder(@NonNull AttractionsRecyclerViewHolder holder, int position) {
-        AttractionData attractionData = viewModel.getAttractionLiveData().getValue().get(position);
+        AttractionData attractionData = (favouritesSelected) ?
+                viewModel.getFavouriteAttractionLiveData().getValue().get(position) :
+                viewModel.getAttractionLiveData().getValue().get(position);
         holder.bind(attractionData, viewModel);
     }
 
     @Override
     public int getItemCount() {
-        return viewModel.getAttractionLiveData().getValue().size();
+        return (favouritesSelected) ?
+                viewModel.getFavouriteAttractionLiveData().getValue().size() :
+                viewModel.getAttractionLiveData().getValue().size();
+    }
+
+    public boolean isFavouritesSelected() {
+        return favouritesSelected;
+    }
+
+    public void setFavouritesSelected(boolean favouritesSelected) {
+        this.favouritesSelected = favouritesSelected;
+        notifyDataSetChanged();
     }
 }

@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.GeoHandbook" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.GeoHandbook" parent="Theme.MaterialComponents">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/green_a400</item>
         <item name="colorPrimaryVariant">@color/green_a700</item>
@@ -10,7 +10,11 @@
         <item name="colorSecondaryVariant">@color/pink_900</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="colorPrimaryDark">@color/green_900</item>
+        <item name="android:statusBarColor">@color/green_900</item>
+        <item name="colorSurface">@color/green_900</item>
         <!-- Customize your theme here. -->
+        <item name="colorOutline">?attr/colorPrimaryDark</item>
+        <item name="colorSecondaryContainer">?attr/colorPrimaryDark</item>
     </style>
 </resources>

@@ -7,6 +7,7 @@ public class AttractionData {
     private String description;
     private String imageUrl;
     private LatLng coordinates;
+    private boolean favourite;
 
     public AttractionData() {
     }
@@ -48,5 +49,13 @@ public class AttractionData {
 
     public void setCoordinates(LatLng coordinates) {
         this.coordinates = coordinates;
+    }
+
+    public boolean isFavourite() {
+        return favourite;
+    }
+
+    public void setFavourite(boolean favourite) {
+        this.favourite = favourite;
     }
 }

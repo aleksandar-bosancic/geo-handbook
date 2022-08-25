@@ -12,4 +12,5 @@
     <string name="description">Description</string>
     <string name="show_on_map">Show on map</string>
     <string name="show_weather">Show weather</string>
+    <string name="no_favourite_attractions">No favourite attractions</string>
 </resources>

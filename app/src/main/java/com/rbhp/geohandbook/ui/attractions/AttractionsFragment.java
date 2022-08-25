@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.button.MaterialButtonToggleGroup;
 import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.databinding.FragmentAttractionsBinding;
 
@@ -20,6 +22,7 @@ public class AttractionsFragment extends Fragment {
     private RecyclerView recyclerView;
     private AttractionsRecyclerViewAdapter recyclerViewAdapter;
     private AttractionsViewModel viewModel;
+    private MaterialButtonToggleGroup toggleGroup;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -35,7 +38,32 @@ public class AttractionsFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setAdapter(recyclerViewAdapter);
 
+        toggleGroup = root.findViewById(R.id.toggle_button_group);
+        toggleGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
+            if (isChecked) {
+                if (checkedId == R.id.all_attractions_button) {
+                    viewModel.updateFavourites();
+                    recyclerViewAdapter.setFavouritesSelected(false);
+                } else {
+                    viewModel.updateFavourites();
+                    recyclerViewAdapter.setFavouritesSelected(true);
+                }
+            }
+        });
+
+        viewModel.getClickedAttractionMap().observe(getViewLifecycleOwner(), attractionData -> {
+            //TODO mapa za pritisnut marker, za favourite i za sve ostale
+        });
         return binding.getRoot();
     }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        viewModel.getFavouritesSelected().observe(getViewLifecycleOwner(),
+                aBoolean -> {
+                    viewModel.updateFavourites();
+                    recyclerViewAdapter.setFavouritesSelected(aBoolean);
+                });
+    }
 }

@@ -13,4 +13,5 @@
     <string name="description">Opis</string>
     <string name="show_on_map">Prikaži na mapi</string>
     <string name="show_weather">Prikaži vrijeme</string>
+    <string name="no_favourite_attractions">No favourite attractions</string>
 </resources>

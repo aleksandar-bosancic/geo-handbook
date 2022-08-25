@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="pink_400">#EC407A</color>
     <color name="green_a400">#00E676</color>
     <color name="green_a700">#00C853</color>
     <color name="green_900">#006018</color>
     <color name="pink_900">#880E4F</color>
     <color name="pink_700">#C2185B</color>
+    <color name="pink_400">#EC407A</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
