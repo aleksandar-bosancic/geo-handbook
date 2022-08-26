@@ -9,14 +9,12 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.google.gson.reflect.TypeToken;
 import com.rbhp.geohandbook.data.AttractionData;
-import com.rbhp.geohandbook.data.CityData;
 import com.rbhp.geohandbook.data.SingleLiveEvent;
 import com.rbhp.geohandbook.util.FileUtil;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class AttractionsViewModel extends AndroidViewModel {
@@ -25,7 +23,7 @@ public class AttractionsViewModel extends AndroidViewModel {
     private SingleLiveEvent<AttractionData> clickedAttractionMap;
     private SingleLiveEvent<Boolean> favouritesSelected;
 
-    public AttractionsViewModel(Application application){
+    public AttractionsViewModel(Application application) {
         super(application);
         attractionLiveData = new MutableLiveData<>();
         favouriteAttractionLiveData = new MutableLiveData<>(new ArrayList<>());
@@ -33,7 +31,8 @@ public class AttractionsViewModel extends AndroidViewModel {
         favouritesSelected.setValue(false);
         clickedAttractionMap = new SingleLiveEvent<>();
         attractionLiveData.setValue(FileUtil.loadCityData(getApplication().getApplicationContext(),
-                new TypeToken<List<AttractionData>>(){}.getType()));
+                new TypeToken<List<AttractionData>>() {
+                }.getType()));
     }
 
     @BindingAdapter({"imageUrl"})
@@ -67,6 +66,9 @@ public class AttractionsViewModel extends AndroidViewModel {
     }
 
     public void updateFavourites() {
+        if (attractionLiveData.getValue() == null) {
+            return;
+        }
         favouriteAttractionLiveData.setValue(attractionLiveData.getValue().stream().filter(AttractionData::isFavourite).collect(Collectors.toList()));
     }
 

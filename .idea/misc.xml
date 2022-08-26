@@ -8,10 +8,12 @@
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/drawable/ic_favorite.xml" value="0.195" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2985" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
+        <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/drawable/ic_map_attractions_bitmap.xml" value="0.262" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2985" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/drawable/id_map_attractions.xml" value="0.25" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/drawable/map_button_selector.xml" value="0.3665" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/dialog_attraction.xml" value="0.18697916666666667" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/dialog_weather.xml" value="0.33" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/fragment_attractions.xml" value="0.5" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/fragment_cities.xml" value="0.25" />

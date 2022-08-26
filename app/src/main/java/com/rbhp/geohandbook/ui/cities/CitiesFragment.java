@@ -71,7 +71,9 @@ public class CitiesFragment extends Fragment {
         if (cityData == null) {
             return;
         }
-        Navigation.findNavController(requireView()).navigate(R.id.navigate_to_maps);
+        Bundle arguments = new Bundle();
+        arguments.putBoolean("City", true);
+        Navigation.findNavController(requireView()).navigate(R.id.cities_navigate_to_maps, arguments);
     }
 
     private void openCityImages(CityData cityData) {

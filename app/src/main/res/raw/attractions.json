@@ -16,5 +16,14 @@
       "longitude": 19.216191
     },
     "imageUrl": "https://www.etno-selo.com/images/pocetna-1.jpg"
+  },
+  {
+    "name": "Mrakovica",
+    "description": "Najčešći su vjetrovi iz sjevernog kvadranta, a veći dio godine u Banjoj Luci vlada tiho vrijeme.",
+    "coordinates": {
+      "latitude": 45.013820,
+      "longitude": 16.909255
+    },
+    "imageUrl": "https://d2bgjx2gb489de.cloudfront.net/gbb-blogs/wp-content/uploads/2016/07/19094233/kozara-national-park-800x400.jpg"
   }
 ]

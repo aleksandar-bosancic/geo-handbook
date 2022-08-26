@@ -11,20 +11,28 @@
         android:label="@string/title_cities"
         tools:layout="@layout/fragment_cities">
         <action
-            android:id="@+id/navigate_to_maps"
+            android:id="@+id/cities_navigate_to_maps"
             app:destination="@id/navigation_maps"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
         <action
             android:id="@+id/navigate_to_city_images"
-            app:destination="@id/navigation_city_images" />
+            app:destination="@id/navigation_city_images"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_attractions"
         android:name="com.rbhp.geohandbook.ui.attractions.AttractionsFragment"
         android:label="@string/title_attractions"
-        tools:layout="@layout/fragment_attractions" />
+        tools:layout="@layout/fragment_attractions" >
+        <action
+            android:id="@+id/attraction_navigate_to_maps"
+            app:destination="@id/navigation_maps"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"/>
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_news"
@@ -50,8 +58,13 @@
         android:label="@string/title_map"
         tools:layout="@layout/fragment_maps">
         <action
-            android:id="@+id/navigate_to_cities"
+            android:id="@+id/maps_navigate_to_cities"
             app:destination="@id/navigation_cities"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/maps_navigate_to_attractions"
+            app:destination="@id/navigation_attractions"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
     </fragment>
@@ -64,8 +77,8 @@
         <action
             android:id="@+id/navigate_to_cities"
             app:destination="@id/navigation_cities"
-            app:popUpTo="@id/navigate_to_cities" />
+            app:popUpTo="@id/navigate_to_cities"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out" />
     </fragment>
-
-
 </navigation>

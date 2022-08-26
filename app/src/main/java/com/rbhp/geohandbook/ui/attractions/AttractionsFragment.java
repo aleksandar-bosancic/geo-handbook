@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -52,7 +53,12 @@ public class AttractionsFragment extends Fragment {
         });
 
         viewModel.getClickedAttractionMap().observe(getViewLifecycleOwner(), attractionData -> {
-            //TODO mapa za pritisnut marker, za favourite i za sve ostale
+            if (attractionData == null) {
+                return;
+            }
+            Bundle arguments = new Bundle();
+            arguments.putBoolean("Attraction", true);
+            Navigation.findNavController(requireView()).navigate(R.id.attraction_navigate_to_maps, arguments);
         });
         return binding.getRoot();
     }

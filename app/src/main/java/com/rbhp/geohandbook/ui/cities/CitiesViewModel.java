@@ -39,7 +39,8 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
         clickedCityMap = new MutableLiveData<>();
         cityListMutableLiveData = new MutableLiveData<>();
         cityListMutableLiveData.setValue(FileUtil.loadCityData(getApplication().getApplicationContext(),
-                new TypeToken<List<CityData>>(){}.getType()));
+                new TypeToken<List<CityData>>() {
+                }.getType()));
         clickedCityWeather = new SingleLiveEvent<>();
         clickedCityImage = new MutableLiveData<>();
     }
