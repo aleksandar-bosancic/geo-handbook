@@ -1,6 +1,7 @@
 package com.rbhp.geohandbook.data;
 
 import androidx.databinding.InverseMethod;
+import androidx.lifecycle.MutableLiveData;
 
 public class Converter {
     private Converter() {
@@ -22,6 +23,30 @@ public class Converter {
 
     public static String toString(double value) {
         return String.valueOf(value);
+    }
+
+    @InverseMethod("integerToString")
+    public static int stringToInteger(String value) {
+        if (value.length() == 0) {
+            return 1;
+        }
+        return Integer.parseInt(value);
+    }
+
+    public static String integerToString(int value) {
+        return String.valueOf(value);
+    }
+
+    public static Integer floatToInteger(float value){
+        return Math.round(value);
+    }
+
+    @InverseMethod("floatToInteger")
+    public static float integerToFloat(Integer value){
+        if (value == null){
+            return 1;
+        }
+        return Float.valueOf(value);
     }
 
     public static String tempRoundedToString(double value) {

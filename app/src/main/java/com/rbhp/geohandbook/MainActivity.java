@@ -1,5 +1,11 @@
 package com.rbhp.geohandbook;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -12,6 +18,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.rbhp.geohandbook.databinding.ActivityMainBinding;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     private NavController navController;
@@ -45,5 +53,28 @@ public class MainActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         Log.println(Log.ASSERT, "asdfasdf", String.valueOf(navController.getCurrentBackStackEntry().toString()));
         return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp();
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(updateBaseContextLocale(base, "en"));
+    }
+
+    public Context updateBaseContextLocale(Context context, String language) {
+//        String language = "sr";
+        Locale locale = new Locale(language);
+        Locale.setDefault(locale);
+
+        return updateResourcesLocaleLegacy(context, locale);
+    }
+
+
+    @SuppressWarnings("deprecation")
+    private Context updateResourcesLocaleLegacy(Context context, Locale locale) {
+        Resources resources = context.getResources();
+        Configuration configuration = resources.getConfiguration();
+        configuration.locale = locale;
+        resources.updateConfiguration(configuration, resources.getDisplayMetrics());
+        return context;
     }
 }
