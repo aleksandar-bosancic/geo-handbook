@@ -17,6 +17,7 @@ import com.rbhp.geohandbook.data.WeatherData;
 import com.rbhp.geohandbook.http.APIInterface;
 import com.rbhp.geohandbook.http.RetrofitHttp;
 import com.rbhp.geohandbook.util.FileUtil;
+import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -47,7 +48,8 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
 
     @BindingAdapter({"imageUrl"})
     public static void loadImage(ImageView imageView, CityData cityData) {
-        Picasso.get().load(cityData.getImageUrls().get(0))
+        Picasso.get()
+                .load(cityData.getImageUrls().get(0))
                 .into(imageView);
     }
 
@@ -56,14 +58,17 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
         if (weatherData == null) {
             return;
         }
-        Picasso.get().load(WEATHER_IMAGE_URL + weatherData.getWeatherDescription().get(0).icon + PNG_EXTENSION_STRING)
+        Picasso.get()
+                .load(WEATHER_IMAGE_URL + weatherData.getWeatherDescription().get(0).icon + PNG_EXTENSION_STRING)
                 .resize(160, 160)
                 .into(imageView);
     }
 
     @BindingAdapter({"cityImageUrl"})
     public static void loadCityImage(ImageView imageView, String url) {
-        Picasso.get().load(url).into(imageView);
+        Picasso.get()
+                .load(url)
+                .into(imageView);
     }
 
     @Override

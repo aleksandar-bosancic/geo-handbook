@@ -6,7 +6,6 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.rbhp.geohandbook.R;
-import com.rbhp.geohandbook.data.CityData;
 
 import org.apache.commons.io.IOUtils;
 

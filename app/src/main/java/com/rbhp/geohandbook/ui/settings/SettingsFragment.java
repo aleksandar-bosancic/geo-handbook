@@ -15,7 +15,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.data.NumberInputFilter;
 import com.rbhp.geohandbook.databinding.FragmentSettingsBinding;
-import com.rbhp.geohandbook.util.LocaleManager;
 
 import java.util.Objects;
 
@@ -40,13 +39,27 @@ public class SettingsFragment extends Fragment implements View.OnFocusChangeList
         images.setFilters(new InputFilter[]{new NumberInputFilter(1, 10)});
         images.setOnFocusChangeListener(this);
 
-        viewModel.initialLanguageSelected(requireContext());
+        View buttons = root.findViewById(R.id.decision_buttons);
+
+        viewModel.initialSelectedLanguage();
 
         viewModel.getCheckedLanguage().observe(getViewLifecycleOwner(), integer -> {
             if (!Objects.equals(viewModel.getInitialLanguage(), integer)) {
                 String languageCode = (integer == R.id.sr) ? "sr" : "en";
-                LocaleManager.setLocale(requireContext(), languageCode);
+                viewModel.setLocale(languageCode);
                 requireActivity().recreate();
+            }
+        });
+
+        viewModel.getCacheSize().observe(getViewLifecycleOwner(), integer -> {
+            if (!Objects.equals(integer, viewModel.getInitialCacheSize())){
+                buttons.setVisibility(View.VISIBLE);
+            }
+        });
+
+        viewModel.getApplyClicked().observe(getViewLifecycleOwner(), aBoolean -> {
+            if (aBoolean && viewModel.getCacheSize() != null) {
+                viewModel.setCache(viewModel.getCacheSize().getValue());
             }
         });
 
