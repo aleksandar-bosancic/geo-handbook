@@ -13,4 +13,11 @@
     <string name="show_on_map">Show on map</string>
     <string name="show_weather">Show weather</string>
     <string name="no_favourite_attractions">No favourite attractions</string>
+    <string name="application_language">Application language</string>
+    <string name="english">English</string>
+    <string name="serbian">Serbian</string>
+    <string name="cache_size">Cache size [MB]</string>
+    <string name="number_of_city_images">Number of city images</string>
+    <string name="all">All</string>
+    <string name="favourites">Favourites</string>
 </resources>

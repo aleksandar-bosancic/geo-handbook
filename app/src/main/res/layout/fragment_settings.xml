@@ -45,7 +45,7 @@
                         style="@style/TextAppearance.AppCompat.Headline"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Application language" />
+                        android:text="@string/application_language" />
 
                     <RadioGroup
                         android:layout_width="match_parent"
@@ -57,13 +57,13 @@
                             android:id="@+id/en"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="English" />
+                            android:text="@string/english" />
 
                         <RadioButton
                             android:id="@+id/sr"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Serbian" />
+                            android:text="@string/serbian" />
                     </RadioGroup>
                 </LinearLayout>
 
@@ -77,7 +77,7 @@
                         style="@style/TextAppearance.AppCompat.Headline"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cache size" />
+                        android:text="@string/cache_size" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -114,7 +114,7 @@
                         style="@style/TextAppearance.AppCompat.Headline"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Number of city images" />
+                        android:text="@string/number_of_city_images" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

@@ -5,8 +5,6 @@ q
 Aapp/src/main/java/com/rbhp/geohandbook/ui/info/InfoViewModel.java,6\f\6f090c983e1c4355bc478da95fff30a4ab100d47
 A
 gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 L
 .idea/dictionaries/acobo.xml,7\6\76d77af75ee5dc4ed57dd2a7c8e01d800e257ee9
 :
@@ -50,8 +48,6 @@ l
 Napp/src/main/java/com/rbhp/geohandbook/ui/cities/CitiesRecyclerViewHolder.java,7\1\71f86129e75100c43ef5ccd18de2c1e1dd8cdf1b
 ˆ
 Xapp/src/main/java/com/rbhp/geohandbook/ui/attractions/AttractionsRecyclerViewHolder.java,0\a\0a9373a7d91b884be30eebb0e7ffccdf9ab3c140
-p
-@app/src/main/java/com/rbhp/geohandbook/data/SingleLiveEvent.java,a\1\a1650593c5ab841472bd8ea4ad0d599773e51feb
 o
 ?app/src/main/java/com/rbhp/geohandbook/data/AttractionData.java,7\4\742742caf50fd22a56f9424c666fa14747bc6233
 ‰
@@ -62,8 +58,6 @@ t
 Dapp/src/main/java/com/rbhp/geohandbook/ui/weather/WeatherDialog.java,8\7\8742b688d52f3eec8880eaf998c23768499ae03d
 s
 Capp/src/main/java/com/rbhp/geohandbook/ui/map/AttractionDialog.java,7\1\7156abb9b93c102aabaafe2f700943d5431d2428
-~
-Napp/src/main/java/com/rbhp/geohandbook/ui/attractions/AttractionsFragment.java,3\8\38d3a4f521e01a9f6ae833e9751a69f0d2c31793
 
 Oapp/src/main/java/com/rbhp/geohandbook/ui/attractions/AttractionsViewModel.java,8\7\8713456f563629853216410648b08058f7a44944
 o
@@ -72,3 +66,11 @@ t
 Dapp/src/main/java/com/rbhp/geohandbook/ui/cities/CitiesFragment.java,4\c\4c087200767fb9420a79eeb10bb6b4eb3ac1703e
 p
 @app/src/main/java/com/rbhp/geohandbook/ui/news/NewsFragment.java,f\7\f73a4f8725023dfdf23c29a850250c3c4e91771f
+?
+settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
+u
+Eapp/src/main/java/com/rbhp/geohandbook/ui/cities/CitiesViewModel.java,e\8\e82ad53a1f258054fb8729fffd79e55d2cb5b619
+j
+:app/src/main/java/com/rbhp/geohandbook/data/Converter.java,0\d\0d782b2d2e93971116f8d04cca76508ac2ee10e6
+r
+Bapp/src/main/java/com/rbhp/geohandbook/data/NumberInputFilter.java,1\3\135d933928b3eb5e58d2fd193c6fa45006fbd695

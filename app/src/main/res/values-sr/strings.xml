@@ -13,5 +13,12 @@
     <string name="description">Opis</string>
     <string name="show_on_map">Prikaži na mapi</string>
     <string name="show_weather">Prikaži vrijeme</string>
-    <string name="no_favourite_attractions">No favourite attractions</string>
+    <string name="no_favourite_attractions">Nema omiljenih atrakcija</string>
+    <string name="application_language">Jezik aplikacije</string>
+    <string name="english">Engleski</string>
+    <string name="serbian">Srpski</string>
+    <string name="cache_size">Veličina keša [MB]</string>
+    <string name="number_of_city_images">Broj slika gradova</string>
+    <string name="all">Sve</string>
+    <string name="favourites">Omiljeno</string>
 </resources>

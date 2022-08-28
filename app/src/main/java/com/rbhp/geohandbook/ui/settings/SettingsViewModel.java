@@ -1,6 +1,7 @@
 package com.rbhp.geohandbook.ui.settings;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.util.Log;
@@ -13,18 +14,23 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.google.android.material.slider.Slider;
+import com.rbhp.geohandbook.MainActivity;
+import com.rbhp.geohandbook.R;
+import com.rbhp.geohandbook.data.SingleLiveEvent;
+import com.rbhp.geohandbook.util.LocaleManager;
 
 import java.util.Locale;
 
 public class SettingsViewModel extends ViewModel {
     private MutableLiveData<Integer> cacheSize;
     private MutableLiveData<Integer> numberOfImages;
-    private MutableLiveData<Integer> checkedLanguage;
+    private SingleLiveEvent<Integer> checkedLanguage;
+    private Integer initialLanguage;
 
     public SettingsViewModel() {
         cacheSize = new MutableLiveData<>(100);
         numberOfImages = new MutableLiveData<>(5);
-        checkedLanguage = new MutableLiveData<>();
+        checkedLanguage = new SingleLiveEvent<>();
     }
 
     @BindingAdapter("android:valueAttrChanged")
@@ -55,20 +61,28 @@ public class SettingsViewModel extends ViewModel {
         this.numberOfImages = numberOfImages;
     }
 
-    public void setLocale(Activity activity, String languageCode) {
-        Locale locale = new Locale(languageCode);
-        Locale.setDefault(locale);
-        Resources resources = activity.getResources();
-        Configuration config = resources.getConfiguration();
-        config.setLocale(locale);
-        resources.updateConfiguration(config, resources.getDisplayMetrics());
-    }
-
     public MutableLiveData<Integer> getCheckedLanguage() {
         return checkedLanguage;
     }
 
-    public void setCheckedLanguage(MutableLiveData<Integer> checkedLanguage) {
+    public void setCheckedLanguage(SingleLiveEvent<Integer> checkedLanguage) {
         this.checkedLanguage = checkedLanguage;
+    }
+
+    public void initialLanguageSelected(Context requireContext) {
+        String language = LocaleManager.getPersistedLanguage(requireContext);
+        Integer id = (language.equals("sr")) ? R.id.sr : R.id.en;
+        setInitialLanguage(id);
+        SingleLiveEvent<Integer> singleLiveEventId = new SingleLiveEvent<>();
+        singleLiveEventId.setValue(id);
+        setCheckedLanguage(singleLiveEventId);
+    }
+
+    public Integer getInitialLanguage() {
+        return initialLanguage;
+    }
+
+    public void setInitialLanguage(Integer initialLanguage) {
+        this.initialLanguage = initialLanguage;
     }
 }

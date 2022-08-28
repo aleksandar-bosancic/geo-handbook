@@ -32,7 +32,7 @@ public class AttractionsFragment extends Fragment {
         binding = FragmentAttractionsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         binding.setViewmodel(viewModel);
-        binding.setLifecycleOwner(this);
+        binding.setLifecycleOwner(requireActivity());
 
         recyclerView = root.findViewById(R.id.attractions_recycler_view);
         recyclerViewAdapter = new AttractionsRecyclerViewAdapter(viewModel);

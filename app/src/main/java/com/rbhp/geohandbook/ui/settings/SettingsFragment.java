@@ -7,17 +7,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.rbhp.geohandbook.MainActivity;
 import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.data.NumberInputFilter;
 import com.rbhp.geohandbook.databinding.FragmentSettingsBinding;
-import com.rbhp.geohandbook.util.LocaleHelper;
+import com.rbhp.geohandbook.util.LocaleManager;
+
+import java.util.Objects;
 
 public class SettingsFragment extends Fragment implements View.OnFocusChangeListener {
     private SettingsViewModel viewModel;
@@ -40,11 +40,14 @@ public class SettingsFragment extends Fragment implements View.OnFocusChangeList
         images.setFilters(new InputFilter[]{new NumberInputFilter(1, 10)});
         images.setOnFocusChangeListener(this);
 
+        viewModel.initialLanguageSelected(requireContext());
+
         viewModel.getCheckedLanguage().observe(getViewLifecycleOwner(), integer -> {
-            Toast.makeText(requireContext(), integer, Toast.LENGTH_SHORT).show();
-//            viewModel.setLocale(requireActivity(), "en");
-//            ((MainActivity)requireActivity()).updateBaseContextLocale(requireContext(), "sr");
-            LocaleHelper.setLocale(requireContext(), "sr");
+            if (!Objects.equals(viewModel.getInitialLanguage(), integer)) {
+                String languageCode = (integer == R.id.sr) ? "sr" : "en";
+                LocaleManager.setLocale(requireContext(), languageCode);
+                requireActivity().recreate();
+            }
         });
 
         return root;
