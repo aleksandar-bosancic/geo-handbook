@@ -21,4 +21,6 @@
     <string name="number_of_city_images">Broj slika gradova</string>
     <string name="all">Sve</string>
     <string name="favourites">Omiljeno</string>
+    <string name="discard">Odbaci</string>
+    <string name="apply">Potvrdi</string>
 </resources>

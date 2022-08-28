@@ -12,12 +12,14 @@ import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.data.CityData;
 import com.rbhp.geohandbook.ui.cities.CitiesViewModel;
 
+import java.util.List;
+
 public class CityImagesRecyclerViewAdapter extends RecyclerView.Adapter<CityImagesRecyclerViewHolder> {
     CitiesViewModel viewModel;
-    CityData cityData;
+    List<String> imageUrlList;
 
-    public CityImagesRecyclerViewAdapter(CityData cityData) {
-        this.cityData = cityData;
+    public CityImagesRecyclerViewAdapter(List<String> imageUrlList) {
+        this.imageUrlList = imageUrlList;
     }
 
     @NonNull
@@ -33,15 +35,15 @@ public class CityImagesRecyclerViewAdapter extends RecyclerView.Adapter<CityImag
 
     @Override
     public void onBindViewHolder(@NonNull CityImagesRecyclerViewHolder holder, int position) {
-        String url = cityData.getImageUrls().get(position);
+        String url = imageUrlList.get(position);
         holder.bind(url, viewModel);
     }
 
     @Override
     public int getItemCount() {
-        if (cityData == null) {
+        if (imageUrlList == null) {
             return 0;
         }
-        return cityData.getImageUrls().size();
+        return imageUrlList.size();
     }
 }

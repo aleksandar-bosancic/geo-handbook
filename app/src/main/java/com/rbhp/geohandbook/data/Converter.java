@@ -1,7 +1,6 @@
 package com.rbhp.geohandbook.data;
 
 import androidx.databinding.InverseMethod;
-import androidx.lifecycle.MutableLiveData;
 
 public class Converter {
     private Converter() {

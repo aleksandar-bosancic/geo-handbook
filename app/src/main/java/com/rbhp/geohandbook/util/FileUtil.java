@@ -9,7 +9,6 @@ import com.rbhp.geohandbook.R;
 
 import org.apache.commons.io.IOUtils;
 
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -17,10 +16,7 @@ import java.util.List;
 
 public class FileUtil {
 
-    private FileUtil() {
-    }
-
-    public static <T> List<T> loadCityData(Context context, Type typeToken) {
+    public <T> List<T> loadCityData(Context context, Type typeToken) {
         long time = System.currentTimeMillis();
         List<T> cities = new ArrayList<>();
         String content = "";
@@ -32,7 +28,7 @@ public class FileUtil {
             IOUtils.close();
             Gson gson = new Gson();
             cities = gson.fromJson(content, typeToken);
-        } catch (IOException e) {
+        } catch (Exception e) {
             Log.e("Io", "cannot can");
         }
         Log.println(Log.ASSERT, "loading time", String.valueOf((System.currentTimeMillis() - time)));

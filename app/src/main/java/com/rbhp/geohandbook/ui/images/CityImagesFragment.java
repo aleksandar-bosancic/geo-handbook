@@ -22,22 +22,26 @@ public class CityImagesFragment extends Fragment {
     private RecyclerView recyclerView;
     private CityImagesRecyclerViewAdapter cityImagesRecyclerViewAdapter;
     private CitiesViewModel viewModel;
-    private CityData cityData;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(requireActivity()).get(CitiesViewModel.class);
-        cityData = viewModel.getClickedCityImage().getValue();
+        CityData cityData = viewModel.getClickedCityImage().getValue();
+
         viewModel.setClickedCityImage(null);
         binding = FragmentCityImagesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         binding.setLifecycleOwner(getViewLifecycleOwner());
 
         recyclerView = root.findViewById(R.id.city_images_recycler_view);
-        cityImagesRecyclerViewAdapter = new CityImagesRecyclerViewAdapter(cityData);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(cityImagesRecyclerViewAdapter);
+        if (cityData == null){
+            //show error message
+        } else {
+            cityImagesRecyclerViewAdapter = new CityImagesRecyclerViewAdapter(cityData.getImageUrls().subList(0, viewModel.getNumberOfImages()));
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            recyclerView.setAdapter(cityImagesRecyclerViewAdapter);
+        }
 
         return binding.getRoot();
     }

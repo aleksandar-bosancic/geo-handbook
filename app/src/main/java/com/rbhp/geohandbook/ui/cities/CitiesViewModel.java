@@ -1,6 +1,8 @@
 package com.rbhp.geohandbook.ui.cities;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -17,7 +19,6 @@ import com.rbhp.geohandbook.data.WeatherData;
 import com.rbhp.geohandbook.http.APIInterface;
 import com.rbhp.geohandbook.http.RetrofitHttp;
 import com.rbhp.geohandbook.util.FileUtil;
-import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -29,21 +30,27 @@ import retrofit2.Response;
 public class CitiesViewModel extends AndroidViewModel implements CityListener {
     private static final String WEATHER_IMAGE_URL = "https://openweathermap.org/img/w/";
     private static final String PNG_EXTENSION_STRING = ".png";
+    private static final String NUMBER_OF_IMAGES = "number_of_images";
+
     private final MutableLiveData<List<CityData>> cityListMutableLiveData;
     private final MutableLiveData<CityData> clickedCityMap;
     private final SingleLiveEvent<WeatherData> clickedCityWeather;
     private final MutableLiveData<CityData> clickedCityImage;
+    private final FileUtil fileUtil;
+    private Integer numberOfImages;
 
 
     public CitiesViewModel(Application application) {
         super(application);
+        fileUtil = new FileUtil();
         clickedCityMap = new MutableLiveData<>();
         cityListMutableLiveData = new MutableLiveData<>();
-        cityListMutableLiveData.setValue(FileUtil.loadCityData(getApplication().getApplicationContext(),
+        cityListMutableLiveData.setValue(fileUtil.loadCityData(getApplication().getApplicationContext(),
                 new TypeToken<List<CityData>>() {
                 }.getType()));
         clickedCityWeather = new SingleLiveEvent<>();
         clickedCityImage = new MutableLiveData<>();
+        loadNumberOfImages();
     }
 
     @BindingAdapter({"imageUrl"})
@@ -98,6 +105,12 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
                 });
     }
 
+    public void loadNumberOfImages() {
+        Context context = getApplication().getApplicationContext();
+        SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
+        setNumberOfImages(preferences.getInt(NUMBER_OF_IMAGES, 5));
+    }
+
     public void imageOnClick(CityData cityData) {
         clickedCityImage.setValue(cityData);
     }
@@ -133,5 +146,13 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
 
     public void setCityListMutableLiveData(List<CityData> cityList) {
         cityListMutableLiveData.setValue(cityList);
+    }
+
+    public Integer getNumberOfImages() {
+        return numberOfImages;
+    }
+
+    public void setNumberOfImages(Integer numberOfImages) {
+        this.numberOfImages = numberOfImages;
     }
 }

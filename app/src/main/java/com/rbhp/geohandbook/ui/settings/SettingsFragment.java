@@ -52,14 +52,20 @@ public class SettingsFragment extends Fragment implements View.OnFocusChangeList
         });
 
         viewModel.getCacheSize().observe(getViewLifecycleOwner(), integer -> {
-            if (!Objects.equals(integer, viewModel.getInitialCacheSize())){
+            if (!Objects.equals(integer, viewModel.getInitialCacheSize())) {
                 buttons.setVisibility(View.VISIBLE);
             }
         });
 
-        viewModel.getApplyClicked().observe(getViewLifecycleOwner(), aBoolean -> {
-            if (aBoolean && viewModel.getCacheSize() != null) {
-                viewModel.setCache(viewModel.getCacheSize().getValue());
+        viewModel.getNumberOfImages().observe(getViewLifecycleOwner(), integer -> {
+            if (!Objects.equals(integer, viewModel.getInitialNumberOfImages())) {
+                buttons.setVisibility(View.VISIBLE);
+            }
+        });
+
+        viewModel.getSomethingChanged().observe(getViewLifecycleOwner(), aBoolean -> {
+            if (!aBoolean) {
+                buttons.setVisibility(View.GONE);
             }
         });
 

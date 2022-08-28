@@ -148,22 +148,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:visibility="gone">
+            android:visibility="gone"
+            android:layout_margin="10dp">
 
             <Button
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="@{() -> viewmodel.apply()}"
                 android:layout_alignParentLeft="true"
-                android:text="Apply"
+                android:text="@string/apply"
                 android:textSize="20sp" />
 
             <Button
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:onClick="@{() -> viewmodel.discard()}"
                 android:layout_alignParentRight="true"
-                android:text="Discard"
+                android:text="@string/discard"
                 android:textSize="20sp" />
         </RelativeLayout>
     </RelativeLayout>

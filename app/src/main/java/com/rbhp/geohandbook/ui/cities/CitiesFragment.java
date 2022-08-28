@@ -19,7 +19,6 @@ import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.data.CityData;
 import com.rbhp.geohandbook.data.WeatherData;
 import com.rbhp.geohandbook.databinding.FragmentCitiesBinding;
-import com.rbhp.geohandbook.ui.map.MapsFragment;
 import com.rbhp.geohandbook.ui.weather.WeatherDialog;
 
 public class CitiesFragment extends Fragment {
@@ -32,6 +31,7 @@ public class CitiesFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(requireActivity()).get(CitiesViewModel.class);
+        viewModel.loadNumberOfImages();
 
         binding = FragmentCitiesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();

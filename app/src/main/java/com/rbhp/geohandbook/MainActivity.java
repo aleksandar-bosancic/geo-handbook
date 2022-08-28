@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -31,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -44,14 +44,13 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 
         setUpPicasso();
-
         resetTitle();
     }
 
     private void setUpPicasso() {
         try {
             SharedPreferences preferences = this.getSharedPreferences(this.getPackageName(), Context.MODE_PRIVATE);
-            long cacheSize = preferences.getLong(CACHE_PREFERENCES_STRING, 100);
+            int cacheSize = preferences.getInt(CACHE_PREFERENCES_STRING, 100);
             Picasso picassoSingleton = new Picasso.Builder(this).downloader(new OkHttp3Downloader(getCacheDir(), cacheSize)).build();
             Picasso.setSingletonInstance(picassoSingleton);
         } catch (IllegalStateException e) {

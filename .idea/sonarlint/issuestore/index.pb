@@ -44,13 +44,19 @@ t
 Dapp/src/main/java/com/rbhp/geohandbook/ui/weather/WeatherDialog.java,8\7\8742b688d52f3eec8880eaf998c23768499ae03d
 s
 Capp/src/main/java/com/rbhp/geohandbook/ui/map/AttractionDialog.java,7\1\7156abb9b93c102aabaafe2f700943d5431d2428
-
-Oapp/src/main/java/com/rbhp/geohandbook/ui/attractions/AttractionsViewModel.java,8\7\8713456f563629853216410648b08058f7a44944
 o
 ?app/src/main/java/com/rbhp/geohandbook/ui/map/MapsFragment.java,f\b\fb6f1cce03690ae2293febffbcc3a33b68b6df82
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
-j
-:app/src/main/java/com/rbhp/geohandbook/data/Converter.java,0\d\0d782b2d2e93971116f8d04cca76508ac2ee10e6
-r
-Bapp/src/main/java/com/rbhp/geohandbook/data/NumberInputFilter.java,1\3\135d933928b3eb5e58d2fd193c6fa45006fbd695
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+p
+@app/src/main/java/com/rbhp/geohandbook/data/SingleLiveEvent.java,a\1\a1650593c5ab841472bd8ea4ad0d599773e51feb
+~
+Napp/src/main/java/com/rbhp/geohandbook/ui/attractions/AttractionsFragment.java,3\8\38d3a4f521e01a9f6ae833e9751a69f0d2c31793
+q
+Aapp/src/main/java/com/rbhp/geohandbook/ui/news/NewsViewModel.java,a\9\a98df908b6ce26d193652499a98e76c01956c3a2

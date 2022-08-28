@@ -26,21 +26,17 @@ public class SettingsViewModel extends AndroidViewModel {
     private Integer initialLanguage;
     private Integer initialCacheSize;
     private Integer initialNumberOfImages;
-    private SingleLiveEvent<Boolean> applyClicked;
-    private SingleLiveEvent<Boolean> discardClicked;
     private MutableLiveData<Boolean> somethingChanged;
 
     public SettingsViewModel(Application application) {
         super(application);
-        cacheSize = new MutableLiveData<>(100);
-        numberOfImages = new MutableLiveData<>(5);
+        cacheSize = new MutableLiveData<>();
+        numberOfImages = new MutableLiveData<>();
         checkedLanguage = new SingleLiveEvent<>();
-        applyClicked = new SingleLiveEvent<>();
-        applyClicked.setValue(false);
-        discardClicked = new SingleLiveEvent<>();
-        discardClicked.setValue(false);
         somethingChanged = new MutableLiveData<>();
         somethingChanged.setValue(false);
+        initialCacheSize();
+        initialNumberOfImages();
     }
 
     @BindingAdapter("android:valueAttrChanged")
@@ -67,15 +63,17 @@ public class SettingsViewModel extends AndroidViewModel {
     public void initialCacheSize() {
         Context context = getApplication().getApplicationContext();
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
-        Integer size = preferences.getInt(CACHE_SIZE, 5);
+        Integer size = preferences.getInt(CACHE_SIZE, 100);
         setInitialCacheSize(size);
+        setCacheSize(size);
     }
 
     public void initialNumberOfImages() {
         Context context = getApplication().getApplicationContext();
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
-        Integer size = preferences.getInt(CACHE_SIZE, 5);
+        Integer size = preferences.getInt(NUMBER_OF_IMAGES, 5);
         setInitialNumberOfImages(size);
+        numberOfImages.postValue(size);
     }
 
     public Integer getInitialLanguage() {
@@ -94,12 +92,38 @@ public class SettingsViewModel extends AndroidViewModel {
         editor.apply();
     }
 
-    public void setCache(long size) {
+    public void saveCacheToPreferences(int size) {
         Context context = getApplication().getApplicationContext();
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putLong(CACHE_SIZE, size);
+        editor.putInt(CACHE_SIZE, size);
         editor.apply();
+    }
+
+    public void saveNumberOfImagesToPreferences(int size) {
+        Context context = getApplication().getApplicationContext();
+        SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putInt(NUMBER_OF_IMAGES, size);
+        editor.apply();
+    }
+
+    public void apply() {
+        if (cacheSize.getValue() != null && numberOfImages.getValue() != null) {
+            Integer cache = cacheSize.getValue();
+            Integer number = numberOfImages.getValue();
+            saveCacheToPreferences(cache);
+            saveNumberOfImagesToPreferences(number);
+            initialCacheSize = cache;
+            initialNumberOfImages = number;
+            somethingChanged.setValue(false);
+        }
+    }
+
+    public void discard() {
+        setCacheSize(initialCacheSize);
+        setNumberOfImages(initialNumberOfImages);
+        somethingChanged.setValue(false);
     }
 
     public MutableLiveData<Integer> getCacheSize() {
@@ -114,8 +138,8 @@ public class SettingsViewModel extends AndroidViewModel {
         return numberOfImages;
     }
 
-    public void setNumberOfImages(MutableLiveData<Integer> numberOfImages) {
-        this.numberOfImages = numberOfImages;
+    public void setNumberOfImages(Integer numberOfImages) {
+        this.numberOfImages.setValue(numberOfImages);
     }
 
     public MutableLiveData<Integer> getCheckedLanguage() {
@@ -124,22 +148,6 @@ public class SettingsViewModel extends AndroidViewModel {
 
     public void setCheckedLanguage(SingleLiveEvent<Integer> checkedLanguage) {
         this.checkedLanguage = checkedLanguage;
-    }
-
-    public SingleLiveEvent<Boolean> getApplyClicked() {
-        return applyClicked;
-    }
-
-    public void setApplyClicked(SingleLiveEvent<Boolean> applyClicked) {
-        this.applyClicked = applyClicked;
-    }
-
-    public SingleLiveEvent<Boolean> getDiscardClicked() {
-        return discardClicked;
-    }
-
-    public void setDiscardClicked(SingleLiveEvent<Boolean> discardClicked) {
-        this.discardClicked = discardClicked;
     }
 
     public MutableLiveData<Boolean> getSomethingChanged() {

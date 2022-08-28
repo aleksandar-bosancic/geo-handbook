@@ -22,15 +22,17 @@ public class AttractionsViewModel extends AndroidViewModel {
     private MutableLiveData<List<AttractionData>> favouriteAttractionLiveData;
     private SingleLiveEvent<AttractionData> clickedAttractionMap;
     private SingleLiveEvent<Boolean> favouritesSelected;
+    private final FileUtil fileUtil;
 
     public AttractionsViewModel(Application application) {
         super(application);
+        fileUtil = new FileUtil();
         attractionLiveData = new MutableLiveData<>();
         favouriteAttractionLiveData = new MutableLiveData<>(new ArrayList<>());
         favouritesSelected = new SingleLiveEvent<>();
         favouritesSelected.setValue(false);
         clickedAttractionMap = new SingleLiveEvent<>();
-        attractionLiveData.setValue(FileUtil.loadCityData(getApplication().getApplicationContext(),
+        attractionLiveData.setValue(fileUtil.loadCityData(getApplication().getApplicationContext(),
                 new TypeToken<List<AttractionData>>() {
                 }.getType()));
     }

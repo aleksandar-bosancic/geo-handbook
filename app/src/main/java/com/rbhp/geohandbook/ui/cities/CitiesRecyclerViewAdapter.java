@@ -38,13 +38,18 @@ public class CitiesRecyclerViewAdapter extends RecyclerView.Adapter<CitiesRecycl
 
     @Override
     public void onBindViewHolder(@NonNull CitiesRecyclerViewHolder holder, int position) {
-        CityData city = Objects.requireNonNull(viewModel.getCityLiveData().getValue()).get(position);//cities.get(position);
-        holder.bind(city, viewModel);
+        if (viewModel.getCityLiveData().getValue() != null) {
+            CityData city = viewModel.getCityLiveData().getValue().get(position);
+            holder.bind(city, viewModel);
+        }
     }
 
     @Override
     public int getItemCount() {
-        return Objects.requireNonNull(viewModel.getCityLiveData().getValue()).size();//return cities.size();
+        if (viewModel.getCityLiveData().getValue() == null){
+            return 0;
+        }
+        return viewModel.getCityLiveData().getValue().size();
     }
 
     public List<CityData> getCities() {
