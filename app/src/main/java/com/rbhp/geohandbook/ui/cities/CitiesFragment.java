@@ -41,8 +41,8 @@ public class CitiesFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 RecyclerView.HORIZONTAL, false));
         recyclerView.setAdapter(citiesRecyclerViewAdapter);
-        viewModel.getCityLiveData().observe(getViewLifecycleOwner(),
-                cityData -> citiesRecyclerViewAdapter.setCities(cityData));
+//        viewModel.getCityLiveData().observe(getViewLifecycleOwner(),
+//                cityData -> citiesRecyclerViewAdapter.setCities(cityData));
 
         viewModel.getClickedCityMap().observe(getViewLifecycleOwner(), this::openCityOnMap);
         viewModel.getClickedCityWeather().observe(getViewLifecycleOwner(), this::openWeatherDialog);

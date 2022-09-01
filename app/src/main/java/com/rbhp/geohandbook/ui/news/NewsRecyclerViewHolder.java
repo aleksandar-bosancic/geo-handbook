@@ -1,45 +1,32 @@
 package com.rbhp.geohandbook.ui.news;
 
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.rbhp.geohandbook.R;
+import com.rbhp.geohandbook.BR;
+import com.rbhp.geohandbook.data.NewsData;
 
 public class NewsRecyclerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    private NewsItemListener newsItemListener;
-    private ImageView imageView;
-    private TextView titleText;
+    private final ViewDataBinding binding;
 
-    public NewsRecyclerViewHolder(@NonNull View itemView, NewsItemListener newsItemListener) {
+    public NewsRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
-        imageView = itemView.findViewById(R.id.news_image);
-        titleText = itemView.findViewById(R.id.news_title_text);
-        this.newsItemListener = newsItemListener;
+        binding = DataBindingUtil.bind(itemView);
         itemView.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        this.newsItemListener.onNewsItemClick(getBindingAdapterPosition());
+//        this.newsItemListener.onNewsItemClick(getBindingAdapterPosition());
     }
 
-    public ImageView getImageView() {
-        return imageView;
-    }
-
-    public void setImageView(ImageView imageView) {
-        this.imageView = imageView;
-    }
-
-    public TextView getTitleText() {
-        return titleText;
-    }
-
-    public void setTitleText(TextView titleText) {
-        this.titleText = titleText;
+    public void bind(NewsData newsData, NewsViewModel viewModel) {
+        binding.setVariable(BR.viewModel, viewModel);
+        binding.setVariable(BR.newsdata, newsData);
+        binding.executePendingBindings();
     }
 }

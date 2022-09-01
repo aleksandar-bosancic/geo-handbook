@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -51,7 +52,10 @@ public class MainActivity extends AppCompatActivity {
         try {
             SharedPreferences preferences = this.getSharedPreferences(this.getPackageName(), Context.MODE_PRIVATE);
             int cacheSize = preferences.getInt(CACHE_PREFERENCES_STRING, 100);
-            Picasso picassoSingleton = new Picasso.Builder(this).downloader(new OkHttp3Downloader(getCacheDir(), cacheSize)).build();
+            Log.println(Log.ASSERT, "aasdffasdf", String.valueOf(cacheSize));
+            Picasso picassoSingleton = new Picasso.Builder(this)
+                    .downloader(new OkHttp3Downloader(getCacheDir(), cacheSize))
+                    .build();
             Picasso.setSingletonInstance(picassoSingleton);
         } catch (IllegalStateException e) {
             Log.w("Picasso", "onCreate: Picasso instance already exists", e);

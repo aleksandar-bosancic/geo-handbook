@@ -1,16 +1,21 @@
 package com.rbhp.geohandbook.ui.news;
 
 import android.util.Log;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.databinding.BindingAdapter;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.rbhp.geohandbook.data.CityData;
 import com.rbhp.geohandbook.data.NewsData;
 import com.rbhp.geohandbook.data.NewsFeed;
 import com.rbhp.geohandbook.http.APIInterface;
 import com.rbhp.geohandbook.http.RetrofitHttp;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -19,15 +24,9 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class NewsViewModel extends ViewModel {
-
-    private final MutableLiveData<String> mText;
-    private final MutableLiveData<String> mEnteredText;
     private MutableLiveData<List<NewsData>> newsItemList;
 
     public NewsViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
-        mEnteredText = new MutableLiveData<>();
         newsItemList = new MutableLiveData<>();
 
 
@@ -51,27 +50,31 @@ public class NewsViewModel extends ViewModel {
 
     }
 
+    @BindingAdapter({"imageUrl"})
+    public static void loadImage(ImageView imageView, NewsData newsData) {
+        Picasso.get()
+                .load(newsData.getEnclosure().getLink())
+                .networkPolicy(NetworkPolicy.OFFLINE)
+                .into(imageView, new com.squareup.picasso.Callback() {
+                    @Override
+                    public void onSuccess() {
+                        // Do nothing
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Picasso.get()
+                                .load(newsData.getEnclosure().getLink())
+                                .into(imageView);
+                    }
+                });
+    }
+
     public MutableLiveData<List<NewsData>> getNewsItemList() {
         return newsItemList;
     }
 
     public void setNewsItemList(MutableLiveData<List<NewsData>> newsItemList) {
         this.newsItemList = newsItemList;
-    }
-
-    public LiveData<String> getText() {
-        return mText;
-    }
-
-    public MutableLiveData<String> getEnteredText() {
-        return mEnteredText;
-    }
-
-    public void setEnteredText(String mEnteredText) {
-        this.mEnteredText.setValue(mEnteredText);
-    }
-
-    public void setText(String text) {
-        this.mText.setValue(text);
     }
 }

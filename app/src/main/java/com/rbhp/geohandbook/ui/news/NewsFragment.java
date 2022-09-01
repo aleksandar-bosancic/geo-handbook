@@ -38,9 +38,9 @@ public class NewsFragment extends Fragment implements NewsItemListener {
         binding.setLifecycleOwner(this);
 
         recyclerView = root.findViewById(R.id.news_recycler_view);
-        newsRecyclerViewAdapter = new NewsRecyclerViewAdapter(this);
+        newsRecyclerViewAdapter = new NewsRecyclerViewAdapter(this, newsViewModel);
         newsViewModel.getNewsItemList().observe(getViewLifecycleOwner(), newsItems -> {
-            newsRecyclerViewAdapter.updateList(newsItems);
+            newsRecyclerViewAdapter.updateList();
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(newsRecyclerViewAdapter);
