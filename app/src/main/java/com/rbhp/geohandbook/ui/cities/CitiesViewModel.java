@@ -19,6 +19,7 @@ import com.rbhp.geohandbook.data.WeatherData;
 import com.rbhp.geohandbook.http.APIInterface;
 import com.rbhp.geohandbook.http.RetrofitHttp;
 import com.rbhp.geohandbook.util.FileUtil;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -31,6 +32,7 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
     private static final String WEATHER_IMAGE_URL = "https://openweathermap.org/img/w/";
     private static final String PNG_EXTENSION_STRING = ".png";
     private static final String NUMBER_OF_IMAGES = "number_of_images";
+    private static final String TAG_CACHE_LOAD = "Picasso";
 
     private final MutableLiveData<List<CityData>> cityListMutableLiveData;
     private final MutableLiveData<CityData> clickedCityMap;
@@ -45,7 +47,7 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
         fileUtil = new FileUtil();
         clickedCityMap = new MutableLiveData<>();
         cityListMutableLiveData = new MutableLiveData<>();
-        cityListMutableLiveData.setValue(fileUtil.loadCityData(getApplication().getApplicationContext(),
+        cityListMutableLiveData.setValue(fileUtil.loadData(getApplication().getApplicationContext(),
                 new TypeToken<List<CityData>>() {
                 }.getType()));
         clickedCityWeather = new SingleLiveEvent<>();
@@ -57,7 +59,20 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
     public static void loadImage(ImageView imageView, CityData cityData) {
         Picasso.get()
                 .load(cityData.getImageUrls().get(0))
-                .into(imageView);
+                .networkPolicy(NetworkPolicy.OFFLINE)
+                .into(imageView, new com.squareup.picasso.Callback() {
+                    @Override
+                    public void onSuccess() {
+                        Log.i(TAG_CACHE_LOAD, "Cities onSuccess: Loaded from cache");
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Picasso.get()
+                                .load(cityData.getImageUrls().get(0))
+                                .into(imageView);
+                    }
+                });
     }
 
     @BindingAdapter({"weatherUrl"})
@@ -67,15 +82,42 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
         }
         Picasso.get()
                 .load(WEATHER_IMAGE_URL + weatherData.getWeatherDescription().get(0).icon + PNG_EXTENSION_STRING)
+                .networkPolicy(NetworkPolicy.OFFLINE)
                 .resize(160, 160)
-                .into(imageView);
+                .into(imageView, new com.squareup.picasso.Callback() {
+                    @Override
+                    public void onSuccess() {
+                        Log.i(TAG_CACHE_LOAD, "Weather onSuccess: Loaded from cache");
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Picasso.get()
+                                .load(WEATHER_IMAGE_URL + weatherData.getWeatherDescription().get(0).icon + PNG_EXTENSION_STRING)
+                                .resize(160, 160)
+                                .into(imageView);
+                    }
+                });
     }
 
     @BindingAdapter({"cityImageUrl"})
     public static void loadCityImage(ImageView imageView, String url) {
         Picasso.get()
                 .load(url)
-                .into(imageView);
+                .networkPolicy(NetworkPolicy.OFFLINE)
+                .into(imageView, new com.squareup.picasso.Callback() {
+                    @Override
+                    public void onSuccess() {
+                        Log.i(TAG_CACHE_LOAD, "City images onSuccess: Loaded from cache");
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Picasso.get()
+                                .load(url)
+                                .into(imageView);
+                    }
+                });
     }
 
     @Override
@@ -91,7 +133,6 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
                     @Override
                     public void onResponse(@NonNull Call<WeatherData> call, @NonNull Response<WeatherData> response) {
                         if (response.body() != null) {
-                            Log.println(Log.ASSERT, "weather", response.body().toString());
                             setClickedCityWeather(response.body());
                         }
                     }

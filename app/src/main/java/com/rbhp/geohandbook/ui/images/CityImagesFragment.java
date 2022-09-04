@@ -1,6 +1,7 @@
 package com.rbhp.geohandbook.ui.images;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import com.rbhp.geohandbook.databinding.FragmentCityImagesBinding;
 import com.rbhp.geohandbook.ui.cities.CitiesViewModel;
 
 public class CityImagesFragment extends Fragment {
+    private static final String CITY_IMAGES_FRAGMENT_TAG = "CityImagesFragment";
+
     private FragmentCityImagesBinding binding;
     private RecyclerView recyclerView;
     private CityImagesRecyclerViewAdapter cityImagesRecyclerViewAdapter;
@@ -36,9 +39,13 @@ public class CityImagesFragment extends Fragment {
 
         recyclerView = root.findViewById(R.id.city_images_recycler_view);
         if (cityData == null){
-            //show error message
+            Log.e(CITY_IMAGES_FRAGMENT_TAG, "onCreateView: cityData is null");
         } else {
-            cityImagesRecyclerViewAdapter = new CityImagesRecyclerViewAdapter(cityData.getImageUrls().subList(0, viewModel.getNumberOfImages()));
+            int number = viewModel.getNumberOfImages();
+            if (cityData.getImageUrls().size() < viewModel.getNumberOfImages()){
+                number = cityData.getImageUrls().size();
+            }
+            cityImagesRecyclerViewAdapter = new CityImagesRecyclerViewAdapter(cityData.getImageUrls().subList(0, number));
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             recyclerView.setAdapter(cityImagesRecyclerViewAdapter);
         }

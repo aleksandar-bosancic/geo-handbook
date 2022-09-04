@@ -1,6 +1,7 @@
 package com.rbhp.geohandbook.ui.attractions;
 
 import android.app.Application;
+import android.util.Log;
 import android.widget.ImageView;
 
 import androidx.databinding.BindingAdapter;
@@ -11,6 +12,8 @@ import com.google.gson.reflect.TypeToken;
 import com.rbhp.geohandbook.data.AttractionData;
 import com.rbhp.geohandbook.data.SingleLiveEvent;
 import com.rbhp.geohandbook.util.FileUtil;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -18,6 +21,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class AttractionsViewModel extends AndroidViewModel {
+    private static final String TAG_CACHE_LOAD = "Picasso";
+
     private MutableLiveData<List<AttractionData>> attractionLiveData;
     private MutableLiveData<List<AttractionData>> favouriteAttractionLiveData;
     private SingleLiveEvent<AttractionData> clickedAttractionMap;
@@ -32,15 +37,29 @@ public class AttractionsViewModel extends AndroidViewModel {
         favouritesSelected = new SingleLiveEvent<>();
         favouritesSelected.setValue(false);
         clickedAttractionMap = new SingleLiveEvent<>();
-        attractionLiveData.setValue(fileUtil.loadCityData(getApplication().getApplicationContext(),
+        attractionLiveData.setValue(fileUtil.loadData(getApplication().getApplicationContext(),
                 new TypeToken<List<AttractionData>>() {
                 }.getType()));
     }
 
     @BindingAdapter({"imageUrl"})
     public static void loadImage(ImageView imageView, AttractionData attractionData) {
-        Picasso.get().load(attractionData.getImageUrl())
-                .into(imageView);
+        Picasso.get()
+                .load(attractionData.getImageUrl())
+                .networkPolicy(NetworkPolicy.OFFLINE)
+                .into(imageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        Log.i(TAG_CACHE_LOAD, "Attractions onSuccess: Loaded from cache");
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+                        Picasso.get()
+                                .load(attractionData.getImageUrl())
+                                .into(imageView);
+                    }
+                });
     }
 
     public MutableLiveData<List<AttractionData>> getAttractionLiveData() {

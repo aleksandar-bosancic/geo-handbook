@@ -36,7 +36,7 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
     public void onBindViewHolder(@NonNull NewsRecyclerViewHolder holder, int position) {
         if (viewModel.getNewsItemList().getValue() != null) {
             NewsData newsData = viewModel.getNewsItemList().getValue().get(position);
-            holder.bind(newsData, viewModel);
+            holder.bind(newsData, viewModel, newsItemListener);
         }
     }
 

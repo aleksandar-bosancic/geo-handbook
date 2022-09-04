@@ -23,4 +23,12 @@
     <string name="favourites">Omiljeno</string>
     <string name="discard">Odbaci</string>
     <string name="apply">Potvrdi</string>
+    <string name="flag">Zastava</string>
+    <string name="coat_of_arms">Grb</string>
+    <string name="capital">Glavni grad</string>
+    <string name="basic_info">Osnovne informacije</string>
+    <string name="entities">Entiteti</string>
+    <string name="republic_of_srpska_flag">Zastava Republike Srpske</string>
+    <string name="republic_of_srpska_coat_of_arms">Grb Republike Srpske</string>
+    <string name="history">Istorija</string>
 </resources>

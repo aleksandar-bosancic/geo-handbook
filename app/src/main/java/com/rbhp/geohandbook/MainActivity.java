@@ -17,10 +17,14 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.rbhp.geohandbook.databinding.ActivityMainBinding;
+import com.squareup.picasso.Cache;
+import com.squareup.picasso.LruCache;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
 import java.util.Locale;
+
+import okhttp3.OkHttpClient;
 
 public class MainActivity extends AppCompatActivity {
     private static final String CACHE_PREFERENCES_STRING = "cache_size";
@@ -53,8 +57,10 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences preferences = this.getSharedPreferences(this.getPackageName(), Context.MODE_PRIVATE);
             int cacheSize = preferences.getInt(CACHE_PREFERENCES_STRING, 100);
             Log.println(Log.ASSERT, "aasdffasdf", String.valueOf(cacheSize));
+//            OkHttpClient client = OkHttpClient.Builder.
             Picasso picassoSingleton = new Picasso.Builder(this)
-                    .downloader(new OkHttp3Downloader(getCacheDir(), cacheSize))
+                    .memoryCache(new LruCache(cacheSize * 1024 * 1024))
+                    .downloader(new OkHttp3Downloader(getCacheDir(), (long) cacheSize * 1024 * 1024))
                     .build();
             Picasso.setSingletonInstance(picassoSingleton);
         } catch (IllegalStateException e) {

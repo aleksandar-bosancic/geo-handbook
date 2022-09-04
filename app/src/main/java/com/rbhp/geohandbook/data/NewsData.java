@@ -20,6 +20,16 @@ public class NewsData {
     @SerializedName("enclosure")
     private Enclosure enclosure;
 
+    public NewsData(String title, String pubDate, String link, String guid, String author, String description, String content) {
+        this.title = title;
+        this.pubDate = pubDate;
+        this.link = link;
+        this.guid = guid;
+        this.author = author;
+        this.description = description;
+        this.content = content;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -89,6 +99,11 @@ public class NewsData {
         private String link;
         @SerializedName("type")
         private String type;
+
+        public Enclosure(String link, String type) {
+            this.link = link;
+            this.type = type;
+        }
 
         public String getLink() {
             return link;

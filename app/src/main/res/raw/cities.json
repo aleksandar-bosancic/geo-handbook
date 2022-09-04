@@ -1,10 +1,9 @@
 [
   {
     "name": "Banja Luka",
-    "description": "Pod nazivom Banja Luka, grad se prvi put spominje 6. februara 1494. godine u Povelji ugarskog kralja Vladislava II Jagelovića. Poslije rasprava koje su vodili filolozi i istoričari, utvrđeno je da ime grada potiče od starog pridjeva „banj“ – banov, koji je davno iščezao iz našeg jezika, a zadržao se samo u nazivu grada, pa je tom pridjevu dodata imenica „luka“, što znači ravnica, odnosno cijeli naziv grada potiče od složenice „Banova ravnica“. Oduvijek uz Vrbas, na obje njegove strane razvijale su se još od paleolitskog perioda naselja različitih plemena, koja su se u ovoj blagonaklonoj dolini zadržavala, živjela i razvijala. Pouzdano se zna da je u predrimskom i rimskom periodu ovo područje naseljavalo ilirsko pleme Mezeja, koji su zajedno sa ovim prostorima uključeni u rimsku pokrajinu Ilirik.\n\nBanja Luka ili Banjaluka je gradsko naselje, odnosno naseljeno mjesto u sastavu grada Banje Luke kao jedinice lokalne samouprave u Republici Srpskoj (Bosna i Hercegovina). Predstavlja politički, administrativni, finansijski, univerzitetski i kulturni centar Republike Srpske.\n\nBanja Luka je nekada bila snažan privredni centar sa razvijenom mašinskom, tekstilnom, prehrambenom, drvoprerađivačkom i elektroindustrijom. Ratna zbivanja (1992—1995) i poslijeratna društvena tranzicija uzrokovali su propadanje većine industrijskih kapaciteta i tržišta. U ovom gradu i njegovoj okolini preplitale su se različite kulture, običaji i uticaji. Sve to je ostavilo traga na arhitekturi pojedinih dijelova grada, ali i na velikom broju kulturno-istorijskih spomenika kao svjedoka različitih epoha i ljudskog stvaralaštva. Zbog mnogobrojnih zelenih površina (parkova i aleja), Banja Luka je poznata kao grad zelenila. Dan grada Banja Luke je 22. april . Na taj dan je 1945. godine, Šesta krajiška brigada, na čelu sa komandantom Milančićem Miljevićem, umarširala trijumfalno u Banjaluku, oslobodivši je od fašista.\n\nBanja Luka je smještena na obalama Vrbasa, koji u ovom gradu gubi osobine planinske rijeke i ulazi u niziju na svom putu ka ušću u Savu. Vrbas u Banjoj Luci prima pritoke Suturliju, Crkvenu i Vrbanju. Središnji dio grada leži na nadmorskoj visini od 163 m i okružen je tercijarnim brežuljcima. Grad se u početku razvijao nizvodno od nekadašnjeg Gornjeg Šehera prateći tok Vrbasa, a stambena naselja koja su se gradila poslije Drugog svjetskog rata razvijala su se u širinu prema brdima koja okružuju urbano jezgro. Banja Luka je posebno izložena riziku od zemljotresa, a najsnažniji zemljotres u ovom gradu zabilježen je 27. oktobra 1969. godine (6,3 rihtera). Prvi zabilježeni veći zemljotres je pogodio Banju Luku 1888, a njegova magnituda je iznosila 5,5 stepeni Rihterove skale. Godine 1935. potres je bio jačine 5,5 rihtera, a 1981. oko 5,4 rihtera.\n\nKlima Banje Luke je umjerenokontinentalna, uz uticaj klime panonskog pojasa. Srednja godišnja temperatura je 10,7 °C, srednja januarska −0,8 °C, dok je srednja julska 21,3 °C. Srednja godišnja oblačnost iznosi 62%. Banjolučki kraj odlikuju izrazite zime, topla ljeta, znatna kolebanja temperature, te obilne padavine početkom ljeta. Najčešći su vjetrovi iz sjevernog kvadranta, a veći dio godine u Banjoj Luci vlada tiho vrijeme. ",
-
-    "population": 200000,
-    "size": 1000,
+    "description": "Pod nazivom Banja Luka, grad se prvi put spominje 6. februara 1494. godine u Povelji ugarskog kralja Vladislava II Jagelovića. Poslije rasprava koje su vodili filolozi i istoričari, utvrđeno je da ime grada potiče od starog pridjeva „banj“ – banov, koji je davno iščezao iz našeg jezika, a zadržao se samo u nazivu grada, pa je tom pridjevu dodata imenica „luka“, što znači ravnica, odnosno cijeli naziv grada potiče od složenice „Banova ravnica“. Oduvijek uz Vrbas, na obje njegove strane razvijale su se još od paleolitskog perioda naselja različitih plemena, koja su se u ovoj blagonaklonoj dolini zadržavala, živjela i razvijala. Pouzdano se zna da je u predrimskom i rimskom periodu ovo područje naseljavalo ilirsko pleme Mezeja, koji su zajedno sa ovim prostorima uključeni u rimsku pokrajinu Ilirik.\nBanja Luka ili Banjaluka je gradsko naselje, odnosno naseljeno mjesto u sastavu grada Banje Luke kao jedinice lokalne samouprave u Republici Srpskoj (Bosna i Hercegovina). Predstavlja politički, administrativni, finansijski, univerzitetski i kulturni centar Republike Srpske.\nBanja Luka je nekada bila snažan privredni centar sa razvijenom mašinskom, tekstilnom, prehrambenom, drvoprerađivačkom i elektroindustrijom. Ratna zbivanja (1992—1995) i poslijeratna društvena tranzicija uzrokovali su propadanje većine industrijskih kapaciteta i tržišta. U ovom gradu i njegovoj okolini preplitale su se različite kulture, običaji i uticaji. Sve to je ostavilo traga na arhitekturi pojedinih dijelova grada, ali i na velikom broju kulturno-istorijskih spomenika kao svjedoka različitih epoha i ljudskog stvaralaštva. Zbog mnogobrojnih zelenih površina (parkova i aleja), Banja Luka je poznata kao grad zelenila. Dan grada Banja Luke je 22. april . Na taj dan je 1945. godine, Šesta krajiška brigada, na čelu sa komandantom Milančićem Miljevićem, umarširala trijumfalno u Banjaluku, oslobodivši je od fašista.\nBanja Luka je smještena na obalama Vrbasa, koji u ovom gradu gubi osobine planinske rijeke i ulazi u niziju na svom putu ka ušću u Savu. Vrbas u Banjoj Luci prima pritoke Suturliju, Crkvenu i Vrbanju. Središnji dio grada leži na nadmorskoj visini od 163 m i okružen je tercijarnim brežuljcima. Grad se u početku razvijao nizvodno od nekadašnjeg Gornjeg Šehera prateći tok Vrbasa, a stambena naselja koja su se gradila poslije Drugog svjetskog rata razvijala su se u širinu prema brdima koja okružuju urbano jezgro. Banja Luka je posebno izložena riziku od zemljotresa, a najsnažniji zemljotres u ovom gradu zabilježen je 27. oktobra 1969. godine (6,3 rihtera). Prvi zabilježeni veći zemljotres je pogodio Banju Luku 1888, a njegova magnituda je iznosila 5,5 stepeni Rihterove skale. Godine 1935. potres je bio jačine 5,5 rihtera, a 1981. oko 5,4 rihtera.",
+    "population": "185.042",
+    "size": "1.238 km²",
     "coordinates": {
       "latitude": 44.769846,
       "longitude": 17.189170
@@ -17,9 +16,9 @@
   },
   {
     "name": "Prijedor",
-    "description": "grad",
-    "population": 200000,
-    "size": 1000,
+    "description": "Grad Prijedor se nalazi u sjeverozapadnom dijelu Bosne i Hercegovine, entiteta Republike Srpske, na obali rijeke Sane i Gomjenice i na padinama planine Kozare. Prijedor je postao važan komercijalni i trgovački centar zahvaljujući Rimskim putevima i navigaciji rijeke Sane, kao i prvoj pruzi izgrađenoj 1873. Istorijske zgrade i infrastruktura iz Otomanskog i Austro-Ugarskog perioda su karakteristika urbanog krajolika.\nDanas, Prijedor je razvijen urbani, trgovinski i industrijski centar, a ujedno i dobar domaćin nekim poznatim svjetskim kompanija i kompanijama iz Bosne i Hercegovine.\nIako je Prijedor jedan od najmlađih gradova u Bosni i Hercegovini, arheološka istraživanja područja u kojem se on nalazi potvrdila su da je naseljavanje počelo još prije gotovo 5.000 godina. U predrimsko i rimsko doba u ovim krajevima živi pleme Mezeja koje će zajedno sa moćnim Rimskim carstvom nestati sa svjetske pozornice u 5. vijeku. Tokom sljedećih 12 vijekova ovim područjem će gospodariti različiti gospodari, Hrvati, Mađari, Austrijanci, a od 16. vijeka Turci. Samo ime Prijedora, kao palanke, pojaviće se tek 1696. godine za vrijeme tursko-austrijskog rata, u latinski pisanom tekstu zapovjednika jedinica hrvatskog generelata, izvjesnog grofa Baćanija. Rušenjem ove palanke trebalo je da prođe gotovo 50 godina da bi se Prijedor opet pojavio u popisu naseljenih mjesta.\n Brži razvoj grada usloviće i prolazak željezničke pruge kroz Prijedor, 1873. godine, koja je, spajajući Banja Luku sa Dobrljinom bila prva željeznička pruga u istoriji BiH. Drugi datum, značajan za razvoj grada je 1882. godina kada je gotovo čitav grad izgorio u velikom požaru. Donošenje prvog urbanističkog plana 1901. godine Austrija izgrađuje grad u duhu savremenih srednjoevropskih gradova. U samom gradu, već na početku 20. vijeka postoji štamparija, gradska čitaonica, Komunalna škola, sokolsko društvo, prvi teniski, fudbalski i rukometni klubovi. Grad postaje trgovački i zanatski centar ovog dijela Krajine. U Drugom svjetskom ratu grad i čitavo područje Kozare izgubilo je više od 45.000 stanovnika, među kojima i 18.000 djece. Poslije 2. Svjetskog rata grad se ubrzano razvija, a okosnica privrednog razvoja je Fabrika celuloze i Rudnik željezne rude Ljubija.",
+    "population": "89,397",
+    "size": "834 km²",
     "coordinates": {
       "latitude": 44.979321,
       "longitude": 16.709160
@@ -33,9 +32,9 @@
   },
   {
     "name": "Bijeljina",
-    "description": "grad",
-    "population": 200000,
-    "size": 1000,
+    "description": "Bijeljina se nalazi u sjeveroistočnom dijelu Republike Srpske. To je, nakon Banje Luke, drugo naselje po veličini u Republici Srpskoj i peto u Bosni i Hercegovini. Smještena je u ravnici Semberiji i predstavlja raskršće puteva za Srbiju, Hrvatsku i unutrašnjost Bosne i Hercegovine.\n\nNajstariji pronađeni tragovi obitavanja datiraju iz perioda neolita — starčevačke kulture, 5-4. milenijum stare ere. Važno raskršće kulturnih uticaja u neolitu, bronzanom dobu i kasnije.\nBijeljina je bila jedno od središta panonsko-ilirskog ustanka.\nMeđu značajne ličnosti 19. vijeka ubrajaju se Filip Višnjić i Ivo od Semberije, knez bijeljinske nahije, čiji likovi se nalaze na grbu grada Bijeljine.\nIako se ime „Bijeljina” prvi put pominje već 1446. godine, ozvaničeno je tek 1918. godine. Tokom vladavine Austrougarske grad je nosio ime „Bjelina” a prije toga „Belina” i „Bilina”\n\n",
+    "population": "107.715",
+    "size": "734 km²",
     "coordinates": {
       "latitude": 44.757108,
       "longitude": 19.216191
@@ -43,6 +42,70 @@
     "imageUrls": [
       "https://cityhostelbl.com/en/images/places/place1.jpg",
       "https://tzmedia.b-cdn.net/media/images/ba/place/max/1506b09ff2f2a162cd19b9990afbd9ad.jpg?1602253069"
+    ],
+    "videoUrl": ""
+  },
+  {
+    "name": "Novi Grad",
+    "description": "Novi Grad (ranije Bosanski Novi) je gradsko naselje i sjedište istoimene opštine u Republici Srpskoj, BiH. Novi Grad je smješten na ušću rijeke Sane u Unu, na važnoj raskrsnici puteva iz Panonske nizije prema planinsko — kotlinskoj oblasti Dinarskog planinskog sistema.\n\nNovi Grad je bio najveća raskrsnica drumskog i željezničkog saobraćaja u Pounju i u bivšoj Jugoslaviji, a sada između Republike Srpske, Republike Hrvatske i Federacije BiH. Upravo taj momenat čvorišnog značaja omogućio je najranije naseljavanje od praistorije do danas. Ovdje su se stalno ukrštali i ukrštaju se interesi velikih sila, pa je grad bio uvijek u graničnom prostoru, od nastanka 1280. godine do danas. Prvo je bio na granici srednjovjekovne Bosne i Ugarske, kasnije turskog i austrougarskog carstva, do današnjih granica poslije cijepanja druge Jugoslavije.",
+    "population": "11.063",
+    "size": "47 km²",
+    "coordinates": {
+      "latitude": 44.979321,
+      "longitude": 16.709160
+    },
+    "imageUrls": [
+      "https://www.riopricesaputovanja.com/v1/wp-content/uploads/2020/10/Prijedor-Bosna-i-Hercegovina.jpg",
+      "https://www.prijedorgrad.org/assets/images/5/naslovna_3-1d404a55.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Vv7mjvIEdYt0WMv5_XS708u4scLYPLqcxQ&usqp=CAU"
+    ],
+    "videoUrl": ""
+  },
+  {
+    "name": "Sarajevo",
+    "description": "Sarajevo je glavni grad Bosne i Hercegovine i njen najveći urbani, kulturni, ekonomski i saobraćajni centar, glavni grad Federacije Bosne i Hercegovine i sedište Sarajevskog kantona. Grad Sarajevo čine četiri opštine: Centar, Novi Grad, Novo Sarajevo i Stari Grad.\n\nSarajevo se nalazi u samom geografskom središtu Bosne i HercegovineSmešteno je u kompozitnoj Sarajevskoj kotlini, koja se pruža od istoka prema zapadu, u plodnom Sarajevskom polju.\n\nSarajevska oblast je bila nastanjena još od mlađeg neolitskog doba. Iz tog vremena datira Butmirska kultura koju su otkrili austrougarski arheolozi još 1893. godine. Tokom 12. veka, Bosna je stekla oblasnu samoupravu na čelu sa svojim banovima. Na području oko današnjeg Sarajeva postojala je župa Vrhbosna oko istoimenog mesta. Prema tradiciji, najstariji hrišćanski hram u toj oblasti sagrađen je na Vrelu Bosne, dok dokumenti svedoče da je 1238. godine u Vrhbosni sagrađen katedralni hram Svetog Pavla. Naselje i župa Vrhbosna su posvedočeni u izvorima iz 1244. i 1263. godine.\n\nPočetkom 15. veka, župa Vrhbosna se našla na udaru Turaka, koji su uspostavili svoja uporišta u toj oblasti između 1429. i 1451. godine. Nakon konačnog osvajanja Bosne 1463. godine stvoren je Bosanski sandžak, a na mestu stare Vrhbosne razvio se novi grad — Sarajevo. Ivan Jastrebov navodi podatak da su Turci imali običaj davati osvojenim gradovima nova imena, pa navodi Sarajevo koje se ranije zvalo Zlatni Do.\n\n",
+    "population": "275.524",
+    "size": "1.277 km²",
+    "coordinates": {
+      "latitude": 44.979321,
+      "longitude": 16.709160
+    },
+    "imageUrls": [
+      "https://www.riopricesaputovanja.com/v1/wp-content/uploads/2020/10/Prijedor-Bosna-i-Hercegovina.jpg",
+      "https://www.prijedorgrad.org/assets/images/5/naslovna_3-1d404a55.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Vv7mjvIEdYt0WMv5_XS708u4scLYPLqcxQ&usqp=CAU"
+    ],
+    "videoUrl": ""
+  },
+  {
+    "name": "Trebinje",
+    "description": "Nalazi se na samom jugu Hercegovine u najjužnijem delu Republike Srpske i Bosne i Hercegovine. Smješteno je ispod planine Leotar, na obodu Trebinjskog polja, u dolini nekada najveće evropske reke ponornice Trebišnjice, koja protiče kroz grad.\n\nNajstariji stanovnici Trebinja bili su Iliri, a u VII vijeku p.n.e. se doseljavaju i Grci. Spomen njihovog prisustva ostao je u toponimima. Rimljani dolaze u trebinjski kraj u III vijeku p. n. e. Od njihovog dolaska ovaj kraj je poznat pod nazivom Travunija. Dolazak Slovena se veže za 6. vijek. U ranom slovenskom periodu se zna za više oblasnih gospodara koji su vladali područjem. Nakon što je bugarski car Simeon Veliki zbacio sa vlasti Zaharija Pribislavljevića, vladar Travunije Mihajlo Višević se okrenuo savezu sa kraljem Hrvatske Tomislavom. Posle njegove smrti Travunija je opet bila dio Časlavove Srbije. Godine 1168, Travuniju je preuzeo Stefan Nemanja. Pod vlašću Nemanjića će i ostati sve do kraja vlasti dinastije.Turska vladavina trajala je od 1466. pa sve do 1878. Trebinjski kraj je posebno stradao u 16. veku, posebno od senjskih uskoka, novskih pustahija i hajduka.Od 1878. grad je pod vlašću Austrougara. Po austrougarskoj okupaciji Bosne i Hercegovine usledile su mnoge reforme.Nakon ubistva prestolonaslednika Franca Ferdinanda u Sarajevu, poluvojne dobrovoljačke formacije sastavljene od Muslimana i Hrvata terorisale su Trebinje i okolinu.Srpska vojska je u Trebinje ušla 11. novembra 1918. godine. Nova jugoslovenska država zadržala je austrougarsku administrativnu podjelu, sve do formiranja banovina. Pesnik i diplomata Jovan Dučić (tada jugoslovenski poslanik odnosno ambasador u Rimu) je u centru Trebinja o svom trošku podigao krajem maja 1934. godine spomenik pesniku, crnogorskom vladici i poglavaru Petru II Petroviću Njegošu.",
+    "population": "31.433",
+    "size": "904 km²",
+    "coordinates": {
+      "latitude": 44.979321,
+      "longitude": 16.709160
+    },
+    "imageUrls": [
+      "https://www.riopricesaputovanja.com/v1/wp-content/uploads/2020/10/Prijedor-Bosna-i-Hercegovina.jpg",
+      "https://www.prijedorgrad.org/assets/images/5/naslovna_3-1d404a55.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Vv7mjvIEdYt0WMv5_XS708u4scLYPLqcxQ&usqp=CAU"
+    ],
+    "videoUrl": ""
+  },
+  {
+    "name": "Mostar",
+    "description": "Mostar je grad smješten na obalama rijeke Neretve usred Hercegovine u Bosni i Hercegovini. U Mostaru se nalazi upravno sjedište istoimene jedinice lokalne samouprave i Hercegovačko-neretvanskog kantona. Poznat je po čuvenom Starom mostu, izgrađenom u 16. vijeku, koji je srušen tokom rata 1993. zbog taktičkih razloga, da bi nakon rata bio izgrađen ponovo.\n\nŠire područje današnjeg Mostara bilo je naseljeno još u praistorijskom vremenu, što potvrđuju brojna nalazišta (više od 150) iz neolita, bakarnog, bronzanog i gvozdenog doba. Među njima su naseljene pećine, grobovi, oružje, predrimski novac i sl. Uz stočarstvo i zemljoradnju u gvozdenom dobu se razvija i trgovina s okolnim središtima.\n\nZa vrijeme rimske uprave područje su naseljavala ilirska plemena, a administrativno je pripadao dalmatinskoj provinciji. U to doba nastaju i putevi u dolini Neretve. Bazilika iz 3—6. vijeka u Cimu (danas deo Mostara) vjerovatno je bila sjedište biskupije Sarsenterum, koja se nalazila na području današnje Hercegovine.",
+    "population": "105.797",
+    "size": "1.175 km²",
+    "coordinates": {
+      "latitude": 44.979321,
+      "longitude": 16.709160
+    },
+    "imageUrls": [
+      "https://www.riopricesaputovanja.com/v1/wp-content/uploads/2020/10/Prijedor-Bosna-i-Hercegovina.jpg",
+      "https://www.prijedorgrad.org/assets/images/5/naslovna_3-1d404a55.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Vv7mjvIEdYt0WMv5_XS708u4scLYPLqcxQ&usqp=CAU"
     ],
     "videoUrl": ""
   }

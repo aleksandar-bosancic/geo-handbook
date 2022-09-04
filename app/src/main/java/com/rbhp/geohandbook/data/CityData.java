@@ -5,13 +5,13 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.List;
 
 public class CityData {
-    String name;
-    String description;
-    long population;
-    long size;
-    LatLng coordinates;
-    List<String> imageUrls;
-    String videoUrl;
+    private String name;
+    private String description;
+    private String population;
+    private String size;
+    private LatLng coordinates;
+    private List<String> imageUrls;
+    private String videoUrl;
 
     public CityData(String name) {
         this.name = name;
@@ -33,19 +33,19 @@ public class CityData {
         this.description = description;
     }
 
-    public long getPopulation() {
+    public String getPopulation() {
         return population;
     }
 
-    public void setPopulation(long population) {
+    public void setPopulation(String population) {
         this.population = population;
     }
 
-    public long getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(long size) {
+    public void setSize(String size) {
         this.size = size;
     }
 

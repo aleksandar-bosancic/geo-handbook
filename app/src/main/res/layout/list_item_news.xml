@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.rbhp.geohandbook.data.NewsData"/>
-        <import type="com.rbhp.geohandbook.ui.news.NewsViewModel"/>
+
+        <import type="com.rbhp.geohandbook.data.NewsData" />
+
+        <import type="com.rbhp.geohandbook.ui.news.NewsViewModel" />
+
+        <import type="com.rbhp.geohandbook.ui.news.NewsItemListener"/>
+
         <variable
             name="viewmodel"
             type="NewsViewModel" />
+
         <variable
             name="newsdata"
             type="NewsData" />
+
+        <variable
+            name="listener"
+            type="NewsItemListener" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +29,7 @@
         android:layout_height="wrap_content">
 
         <androidx.cardview.widget.CardView
+            android:onClick="@{() -> listener.onNewsItemClick(newsdata)}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -41,48 +52,39 @@
                     android:id="@+id/news_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:scaleType="centerCrop"
                     android:contentDescription="News image"
-                    app:imageUrl="@{newsdata}"/>
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{newsdata}" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="10dp">
+                    android:layout_margin="10dp"
+                    android:orientation="horizontal">
+
                     <TextView
                         android:id="@+id/news_title_text"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="0.95"
-                        android:textSize="20sp"
                         android:text="@{newsdata.title}"
+                        android:textSize="20sp"
                         app:layout_constrainedWidth="true" />
-                    <CheckBox
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="0.05"
-                        android:button="@drawable/ic_favorite"
-                        android:buttonTint="@color/pink_400"
-                        android:foregroundGravity="center"/>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_margin="10dp">
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:justificationMode="inter_word"
-                        android:text="@{newsdata.content}"/>
+                        android:text="@{newsdata.content}" />
                 </LinearLayout>
-
-
             </LinearLayout>
-
         </androidx.cardview.widget.CardView>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

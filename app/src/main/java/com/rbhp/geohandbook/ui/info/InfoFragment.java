@@ -22,8 +22,9 @@ public class InfoFragment extends Fragment {
         InfoViewModel infoViewModel = new ViewModelProvider(this).get(InfoViewModel.class);
 
         binding = FragmentInfoBinding.inflate(inflater, container, false);
-        binding.setLifecycleOwner(this);
-        binding.setViewmodel(infoViewModel);
+        binding.setLifecycleOwner(requireActivity());
+        binding.setData(infoViewModel.getCountryData());
+
         return binding.getRoot();
     }
 

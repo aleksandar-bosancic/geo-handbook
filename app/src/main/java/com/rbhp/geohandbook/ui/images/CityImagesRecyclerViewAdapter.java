@@ -35,6 +35,9 @@ public class CityImagesRecyclerViewAdapter extends RecyclerView.Adapter<CityImag
 
     @Override
     public void onBindViewHolder(@NonNull CityImagesRecyclerViewHolder holder, int position) {
+        if (imageUrlList.size() < position){
+            return;
+        }
         String url = imageUrlList.get(position);
         holder.bind(url, viewModel);
     }

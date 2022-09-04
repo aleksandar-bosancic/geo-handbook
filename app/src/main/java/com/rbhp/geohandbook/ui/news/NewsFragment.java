@@ -20,7 +20,6 @@ import com.rbhp.geohandbook.databinding.FragmentNewsBinding;
 import java.util.Objects;
 
 public class NewsFragment extends Fragment implements NewsItemListener {
-    private static final String TAG = "huha";
     private FragmentNewsBinding binding;
     private RecyclerView recyclerView;
     private NewsRecyclerViewAdapter newsRecyclerViewAdapter;
@@ -35,20 +34,16 @@ public class NewsFragment extends Fragment implements NewsItemListener {
         View root = binding.getRoot();
 
         binding.setViewmodel(newsViewModel);
-        binding.setLifecycleOwner(this);
+        binding.setLifecycleOwner(requireActivity());
 
         recyclerView = root.findViewById(R.id.news_recycler_view);
         newsRecyclerViewAdapter = new NewsRecyclerViewAdapter(this, newsViewModel);
-        newsViewModel.getNewsItemList().observe(getViewLifecycleOwner(), newsItems -> {
-            newsRecyclerViewAdapter.updateList();
-        });
+        newsViewModel.getNewsItemList().observe(getViewLifecycleOwner(), newsItems -> newsRecyclerViewAdapter.updateList());
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(newsRecyclerViewAdapter);
 
         return root;
     }
-
-    //TODO napraviti databinding
 
     @Override
     public void onDestroyView() {
@@ -57,9 +52,8 @@ public class NewsFragment extends Fragment implements NewsItemListener {
     }
 
     @Override
-    public void onNewsItemClick(int newsItemPosition) {
-        NewsData news = Objects.requireNonNull(newsViewModel.getNewsItemList().getValue()).get(newsItemPosition);
-        Intent openNewsLink = new Intent(Intent.ACTION_VIEW, Uri.parse(news.getLink()));
+    public void onNewsItemClick(NewsData newsData) {
+        Intent openNewsLink = new Intent(Intent.ACTION_VIEW, Uri.parse(newsData.getLink()));
         startActivity(openNewsLink);
     }
 }
