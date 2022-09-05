@@ -2,29 +2,34 @@ package com.rbhp.geohandbook;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
+import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
+import androidx.navigation.NavHost;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.rbhp.geohandbook.databinding.ActivityMainBinding;
-import com.squareup.picasso.Cache;
 import com.squareup.picasso.LruCache;
 import com.squareup.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
 
 import java.util.Locale;
-
-import okhttp3.OkHttpClient;
 
 public class MainActivity extends AppCompatActivity {
     private static final String CACHE_PREFERENCES_STRING = "cache_size";
@@ -40,13 +45,41 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_cities, R.id.navigation_news, R.id.navigation_attractions, R.id.navigation_info, R.id.navigation_settings)
-                .build();
+        setSupportActionBar(binding.appBarMain.toolbar);
+
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_activity_main);
+        assert navHostFragment != null;
+        navController = navHostFragment.getNavController();
+
+        BottomNavigationView bottomNavigationView = binding.appBarMain.contentMain.navViewBottom;
+        if (bottomNavigationView != null) {
+            appBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.navigation_cities,
+                    R.id.navigation_news,
+                    R.id.navigation_attractions,
+                    R.id.navigation_info,
+                    R.id.navigation_settings)
+                    .build();
+            NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+            NavigationUI.setupWithNavController(bottomNavigationView, navController);
+        }
+
+        NavigationView navigationView = binding.navViewDrawer;
+        if (navigationView != null) {
+            appBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.navigation_cities,
+                    R.id.navigation_news,
+                    R.id.navigation_attractions,
+                    R.id.navigation_info,
+                    R.id.navigation_settings)
+                    .setOpenableLayout(binding.drawerLayout)
+                    .build();
+            NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+            NavigationUI.setupWithNavController(navigationView, navController);
+        }
 
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
-        NavigationUI.setupWithNavController(binding.navView, navController);
+
 
         setUpPicasso();
         resetTitle();
@@ -56,8 +89,6 @@ public class MainActivity extends AppCompatActivity {
         try {
             SharedPreferences preferences = this.getSharedPreferences(this.getPackageName(), Context.MODE_PRIVATE);
             int cacheSize = preferences.getInt(CACHE_PREFERENCES_STRING, 100);
-            Log.println(Log.ASSERT, "aasdffasdf", String.valueOf(cacheSize));
-//            OkHttpClient client = OkHttpClient.Builder.
             Picasso picassoSingleton = new Picasso.Builder(this)
                     .memoryCache(new LruCache(cacheSize * 1024 * 1024))
                     .downloader(new OkHttp3Downloader(getCacheDir(), (long) cacheSize * 1024 * 1024))

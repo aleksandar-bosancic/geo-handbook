@@ -12,7 +12,12 @@
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2985" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/drawable/id_map_attractions.xml" value="0.25" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/drawable/map_button_selector.xml" value="0.3665" />
+        <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout-land/activity_main.xml" value="0.33" />
+        <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout-land/app_bar_main.xml" value="0.31040564373897706" />
+        <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout-land/content_main.xml" value="0.31040564373897706" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/app_bar_main.xml" value="0.31068840579710144" />
+        <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/content_main.xml" value="0.31068840579710144" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/dialog_attraction.xml" value="0.18697916666666667" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/dialog_weather.xml" value="0.33" />
         <entry key="..\:/Projekti/GeoHandbook/app/src/main/res/layout/fragment_attractions.xml" value="0.5" />
