@@ -188,7 +188,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:contentDescription="@string/flag"
-                                app:imageUrl="@{data.republicOfSrpskaFlagUrl}" />
+                                app:imageUrl="@{data.serbRepublicFlagUrl}" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -208,7 +208,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="100dp"
                                 android:contentDescription="@string/coat_of_arms"
-                                app:imageUrl="@{data.republicOfSrpskaCoatOfArmsUrl}" />
+                                app:imageUrl="@{data.serbRepublicCoatOfArmsUrl}" />
 
                             <TextView
                                 android:layout_width="match_parent"

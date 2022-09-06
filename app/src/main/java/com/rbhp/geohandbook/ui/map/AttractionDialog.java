@@ -17,7 +17,7 @@ import com.rbhp.geohandbook.data.AttractionData;
 import com.rbhp.geohandbook.databinding.DialogAttractionBinding;
 
 public class AttractionDialog extends DialogFragment {
-    private AttractionData attractionData;
+    private final AttractionData attractionData;
 
     public AttractionDialog(AttractionData attractionData) {
         this.attractionData = attractionData;

@@ -19,6 +19,7 @@ import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.data.CityData;
 import com.rbhp.geohandbook.data.WeatherData;
 import com.rbhp.geohandbook.databinding.FragmentCitiesBinding;
+import com.rbhp.geohandbook.ui.video.VideoDialog;
 import com.rbhp.geohandbook.ui.weather.WeatherDialog;
 
 public class CitiesFragment extends Fragment {
@@ -69,9 +70,15 @@ public class CitiesFragment extends Fragment {
         if (cityData == null) {
             return;
         }
-        Bundle arguments = new Bundle();
-        arguments.putBoolean("City", true);
-        Navigation.findNavController(requireView()).navigate(R.id.cities_navigate_to_maps, arguments);
+//        Bundle arguments = new Bundle();
+//        arguments.putBoolean("City", true);
+//        Navigation.findNavController(requireView()).navigate(R.id.cities_navigate_to_maps, arguments);
+//TODO Napravi u fragment jebiga
+        Bundle arg = new Bundle();
+        arg.putString("Url", cityData.getVideoUrl());
+
+        DialogFragment dialogFragment = new VideoDialog();
+        dialogFragment.show(requireActivity().getSupportFragmentManager(), "video" );
     }
 
     private void openCityImages(CityData cityData) {

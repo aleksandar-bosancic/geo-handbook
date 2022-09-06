@@ -27,7 +27,7 @@
     <string name="capital">Capital</string>
     <string name="basic_info">Basic info</string>
     <string name="entities">Entities</string>
-    <string name="republic_of_srpska_flag">Republic of Srpska flag</string>
-    <string name="republic_of_srpska_coat_of_arms">Republic of Srpska coat of arms</string>
+    <string name="republic_of_srpska_flag">Serb Republic flag</string>
+    <string name="republic_of_srpska_coat_of_arms">Serb Republic coat of arms</string>
     <string name="history">History</string>
 </resources>

@@ -10,8 +10,8 @@ public class CountryData {
     private String flagUrl;
     private String coatOfArmsUrl;
     private String countryImageUrl;
-    private String republicOfSrpskaFlagUrl;
-    private String republicOfSrpskaCoatOfArmsUrl;
+    private String serbRepublicFlagUrl;
+    private String serbRepublicCoatOfArmsUrl;
 
     public String getName() {
         return name;
@@ -85,19 +85,19 @@ public class CountryData {
         this.countryImageUrl = countryImageUrl;
     }
 
-    public String getRepublicOfSrpskaFlagUrl() {
-        return republicOfSrpskaFlagUrl;
+    public String getSerbRepublicFlagUrl() {
+        return serbRepublicFlagUrl;
     }
 
-    public void setRepublicOfSrpskaFlagUrl(String republicOfSrpskaFlagUrl) {
-        this.republicOfSrpskaFlagUrl = republicOfSrpskaFlagUrl;
+    public void setSerbRepublicFlagUrl(String serbRepublicFlagUrl) {
+        this.serbRepublicFlagUrl = serbRepublicFlagUrl;
     }
 
-    public String getRepublicOfSrpskaCoatOfArmsUrl() {
-        return republicOfSrpskaCoatOfArmsUrl;
+    public String getSerbRepublicCoatOfArmsUrl() {
+        return serbRepublicCoatOfArmsUrl;
     }
 
-    public void setRepublicOfSrpskaCoatOfArmsUrl(String republicOfSrpskaCoatOfArmsUrl) {
-        this.republicOfSrpskaCoatOfArmsUrl = republicOfSrpskaCoatOfArmsUrl;
+    public void setSerbRepublicCoatOfArmsUrl(String serbRepublicCoatOfArmsUrl) {
+        this.serbRepublicCoatOfArmsUrl = serbRepublicCoatOfArmsUrl;
     }
 }
