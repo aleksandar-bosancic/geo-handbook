@@ -20,7 +20,7 @@
       "https://upload.wikimedia.org/wikipedia/commons/c/c1/Banj_brdo_spomenik_palim_krajisnicima.JPG",
       "https://banjalucanke.com/wp-content/uploads/2021/11/banj-brdo-banjaluka.jpg"
     ],
-    "videoUrl": "HPdHkHslFIU"
+    "videoUrl": "KOPHXq8d8J8"
   },
   {
     "name": "Prijedor",
@@ -43,7 +43,7 @@
       "http://www.npkozara.com/v1/modules/mod_bt_backgroundslideshow/images/original/ec1098e3a88a1781a07f30fb24a13d0d.jpg",
       "https://laterranostra.ch/wp-content/uploads/2021/05/prijedor-3-32ce1dfe-1080x675.jpg"
     ],
-    "videoUrl": "LYI3eegIJlI"
+    "videoUrl": "Nzuiwri8RSU"
   },
   {
     "name": "Bijeljina",
@@ -66,7 +66,7 @@
       "https://pbs.twimg.com/media/FCFnzraUUAIbvYp?format=jpg",
       "https://static5.depositphotos.com/1023050/412/i/600/depositphotos_4129135-stock-photo-lake-in-ethno-village-near.jpg"
     ],
-    "videoUrl": "LYI3eegIJlI"
+    "videoUrl": "VQGClMOIZYo"
   },
   {
     "name": "Novi Grad",
@@ -74,8 +74,8 @@
     "population": "11.063",
     "size": "47 km²",
     "coordinates": {
-      "latitude": 44.979321,
-      "longitude": 16.709160
+      "latitude": 45.048608,
+      "longitude": 16.376380
     },
     "imageUrls": [
       "https://upload.wikimedia.org/wikipedia/commons/9/9d/Bos.Novi2004.jpg",
@@ -88,7 +88,7 @@
       "https://furaj.ba/wp-content/uploads/2022/01/Panorama-Novog-Grada-850x560.jpg",
       "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/DSC_9833_Kej_Novi_Grad.jpg/2560px-DSC_9833_Kej_Novi_Grad.jpg"
     ],
-    "videoUrl": ""
+    "videoUrl": "VOWoKJ3Fyu4"
   },
   {
     "name": "Sarajevo",
@@ -96,8 +96,8 @@
     "population": "275.524",
     "size": "1.277 km²",
     "coordinates": {
-      "latitude": 44.979321,
-      "longitude": 16.709160
+      "latitude": 43.859821,
+      "longitude": 18.431304
     },
     "imageUrls": [
       "https://www.roadaffair.com/wp-content/uploads/2019/01/sebilj-fountain-sarajevo-bosnia-and-herzegovina-shutterstock_574540984-1024x683.jpg",
@@ -119,8 +119,8 @@
     "population": "31.433",
     "size": "904 km²",
     "coordinates": {
-      "latitude": 44.979321,
-      "longitude": 16.709160
+      "latitude": 42.709929,
+      "longitude": 18.345114
     },
     "imageUrls": [
       "https://gotrebinje.com/wp-content/uploads/2017/07/DJI_0123.jpg",
@@ -134,7 +134,7 @@
       "https://www.in4s.net/wp-content/uploads/2021/01/Trebinje.jpg",
       "https://thumbs.dreamstime.com/b/trebinje-panorama-town-view-point-bosnia-herzegovina-33549625.jpg"
     ],
-    "videoUrl": ""
+    "videoUrl": "sEtaxybh5DA"
   },
   {
     "name": "Mostar",
@@ -142,8 +142,8 @@
     "population": "105.797",
     "size": "1.175 km²",
     "coordinates": {
-      "latitude": 44.979321,
-      "longitude": 16.709160
+      "latitude": 43.337439,
+      "longitude": 17.815005
     },
     "imageUrls": [
       "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Mostar_Old_Town_Panorama_2007.jpg/1280px-Mostar_Old_Town_Panorama_2007.jpg",
@@ -157,6 +157,6 @@
       "https://deepgreentravel.com/wp-content/uploads/2020/06/tour_img-871223-99.jpg",
       "https://exploremostar.com/wp-content/uploads/2021/12/kravice-waterfalls.jpg"
     ],
-    "videoUrl": ""
+    "videoUrl": "9lbCVVy6t_8"
   }
 ]
