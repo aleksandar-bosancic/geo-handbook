@@ -34,7 +34,6 @@ public class FileUtil {
         } catch (Exception e) {
             Log.e("Io", "cannot can");
         }
-        Log.println(Log.ASSERT, "loading time", String.valueOf((System.currentTimeMillis() - time)));
         return data;
     }
 

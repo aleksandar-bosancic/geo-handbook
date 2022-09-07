@@ -53,42 +53,43 @@
                         app:imageUrl="@{attraction}" />
                 </RelativeLayout>
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <CheckBox
                         android:id="@+id/attraction_favourite_checkbox"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="5dp"
                         android:button="@drawable/ic_favorite"
                         android:buttonTint="@color/pink_400"
                         android:checked="@={attraction.favourite}"
-                        android:foregroundGravity="center" />
+                        android:foregroundGravity="center"
+                        android:onClick="@{() -> viewModel.updateFavourites(attraction)}" />
+
+                    <TextView
+                        android:id="@+id/attraction_title_text_view"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_weight="0.9"
+                        android:text="@{attraction.name}"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/city_name_text_size" />
 
                     <Button
                         style="@style/Widget.Material3.Button.TextButton.Dialog.Icon"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
                         android:background="@drawable/ic_map_attractions_bitmap"
+                        android:foregroundGravity="center"
                         android:onClick="@{() -> viewModel.setClickedAttractionMap(attraction)}"
                         app:backgroundTint="@null"
                         app:drawableTint="@color/pink_400" />
-
-                    <TextView
-                        android:id="@+id/attraction_title_text_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="@{attraction.name}"
-                        android:textAlignment="center"
-                        android:textSize="@dimen/city_name_text_size" />
-                </RelativeLayout>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"

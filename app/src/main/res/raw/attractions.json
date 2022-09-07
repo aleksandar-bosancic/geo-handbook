@@ -1,7 +1,70 @@
 [
   {
+    "name": "Nacionalni park Kozara",
+    "description": "Površina Nacionalnog parka Kozara je 3520 ha, proglašena je nacionalnim parkom 1967. s ciljem zaštite kulturno-istorijskih i prirodnih vrijednosti planine Kozare. Muzej Nacionalnog parka Kozara je deo memorijalnog kompleksa u Mrakovici, u Nacionalnom parku Kozara koji, pored Muzeja, obuhvata Spomenik i Memorijalni zid posvećen žrtvama drugog svjetskog rata.",
+    "coordinates": {
+      "latitude": 45.013820,
+      "longitude": 16.909255
+    },
+    "imageUrl": "https://d2bgjx2gb489de.cloudfront.net/gbb-blogs/wp-content/uploads/2016/07/19094233/kozara-national-park-800x400.jpg"
+  },
+  {
+    "name": "Nacionalni park Sutjeska",
+    "description": "Nacionalni park Sutjeska je najstariji nacionalni park u Republici Srpskoj i Bosni i Hercegovini. Sutjeska je postala nacionalni park 1962. godine i prostire se na površini od 17.250 ha. Ovde se nalazi i jedna od četiri poslednje prašume u Evropi — Perućica. U Sutjesci se takođe nalazi i najviši planinski vrh u Republici Srpskoj Maglić 2386m nadmorske visine. Park je takođe poznat po lokaciji bitke na Sutjesci, koja je trajala od 15. maja do 16. juna 1943.",
+    "coordinates": {
+      "latitude": 45.013820,
+      "longitude": 16.909255
+    },
+    "imageUrl": "https://funkytours.com/wp-content/uploads/2019/04/Trnovacko-Lake-at-Sutjeska-National-Park-between-Bosnia-and-Montenegro.jpg"
+  },
+  {
+    "name": "Nacionalni park Una",
+    "description": "Nacionalni park Una je jedan od četiri nacionalna parka u Bosni i Hercegovini. Nacionalnim parkom je proglašen 29. maja 2008. godine. Ovo je prvi nacionalni park u BiH koji se nalazi na teritoriji Federacije BiH, dok se ostala tri nalaze u Republici Srpskoj. Cijelo područje nacionalnog parka zauzima površinu od 19.800 ha.",
+    "coordinates": {
+      "latitude": 45.013820,
+      "longitude": 16.909255
+    },
+    "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/%C5%A0TRBA%C4%8CKI_BUK_2.JPG/800px-%C5%A0TRBA%C4%8CKI_BUK_2.JPG"
+  },
+  {
+    "name": "Nacionalni park Drina",
+    "description": "Nacionalni park Drina je četvrti nacionalni park u Bosni i Hercegovini, a treći u Republici Srpskoj. Osnovan je 2017. i prostire se na površini 6.315 ha. Najbliži grad je Srebrenica. Smešten je sa druge strane Drine u odnosu na Nacionalni park Tara u Srbiji.",
+    "coordinates": {
+      "latitude": 45.013820,
+      "longitude": 16.909255
+    },
+    "imageUrl": "https://visitbih.ba/wp-content/uploads/2021/03/planinarenje-nacionalni-park-drina.jpg"
+  },
+  {
+    "name": "Park prirode Blidinje",
+    "description": "Park prirode Blidinje je dobio ime po Blidinjskom jezeru koje je smješteno u dnu Dugog polja na visini od 1.184 m, a površine je oko 6 km². Voda u jezero dolazi (prvenstveno) s okolnih planina, Vrana i Čvrsnice, otapanjem snijega. Ljeti velik dio vode iz Blidinja nestaje u ponorima, zbog čega znatno opadne nivo jezera.\nPodručje Blidinja jedinstvena je prirodna pojava, koja sadrži endemske vrste biljnog i životinjskog svijeta, mnogo izvora čiste, pitke vode, arheološka nalazišta.",
+    "coordinates": {
+      "latitude": 45.013820,
+      "longitude": 16.909255
+    },
+    "imageUrl": "https://pbs.twimg.com/media/Ea6FB6QXsAIJUuw.jpg"
+  },
+  {
+    "name": "Park prirode Bardača",
+    "description": "Barski rezervat Bardača je kompleks od 11 jezera smještenih između rijeka Save i Vrbasa. Nalazi se sjeveroistočno od Banje Luke, u Bardači, opštini SrbacKompleks uključuje ribnjake, naplavljene površine, šume, obrađeno zemljište i nastanjene površine. Bardača je proglašena „Ramsarskim mjestom“, odnosno uvrštena je na svjetsku listu zaštićenih močvarnih područja. Na Bardači se održava najstarija likovna kolonija u BiH: Likovno-ekološka kolonija Bardača.",
+    "coordinates": {
+      "latitude": 45.013820,
+      "longitude": 16.909255
+    },
+    "imageUrl": "https://i.ytimg.com/vi/_OcWFUC2R1w/maxresdefault.jpg"
+  },
+  {
+    "name": "Park prirode Hutovo blato",
+    "description": "Park Prirode “Hutovo blato” osnovan je 1995. godine. Nalazi se u jugoistočnoj Hercegovini, sa lijeve strane rijeke Neretve na teritoriju opština Čapljina i Stolac. Zauzima površinu od 7411ha. Hutovo blato se smatra jednim od najvećih zimovališta ptica na području Europe.",
+    "coordinates": {
+      "latitude": 45.013820,
+      "longitude": 16.909255
+    },
+    "imageUrl": "https://www.adriaticdmc.hr/storage/upload/atrakcije/hutovo_blato_bosnia_nature_park__10497.jpg"
+  },
+  {
     "name": "Tvrđava Kastel",
-    "description": "Tvrđava i jes",
+    "description": "Tvrđava Kastel se nalazi u Banjoj Luci i predstavlja jednu od najstarijih građevina u Bosni i Hercegovini. Postoji malo informacija o tome ko i kada je sagradio Kastel ali po mnogim procjenama tvrđavu Kastel su najvjerojatnije sagradili Rimljani u 3. vijeku, iako neki nalazi tvrde da je tvrđava izgrađena kasnije, tj. u 9. vijeku nove ere.",
     "coordinates": {
       "latitude": 44.769846,
       "longitude": 17.189170
@@ -10,20 +73,11 @@
   },
   {
     "name": "Etno Selo Stanišići",
-    "description": "Selo etno",
+    "description": "Etno Selo Stanišići osnovano je 2003. godine, zahvaljujući inspiraciji Borisa Stanišića. Više od nekoliko godina on je putovao po srpskim selima srednje Bosne u potrazi za starim kućama i predmetima, koji će sačuvati predstavu o jednom vremenu i kulturi življenja sa kraja 19. i početka 20. vijeka. Rezultat je autentično planinsko selo u sred semberske ravnice.",
     "coordinates": {
       "latitude": 44.757108,
       "longitude": 19.216191
     },
     "imageUrl": "https://www.etno-selo.com/images/pocetna-1.jpg"
-  },
-  {
-    "name": "Mrakovica",
-    "description": "Najčešći su vjetrovi iz sjevernog kvadranta, a veći dio godine u Banjoj Luci vlada tiho vrijeme.",
-    "coordinates": {
-      "latitude": 45.013820,
-      "longitude": 16.909255
-    },
-    "imageUrl": "https://d2bgjx2gb489de.cloudfront.net/gbb-blogs/wp-content/uploads/2016/07/19094233/kozara-national-park-800x400.jpg"
   }
 ]

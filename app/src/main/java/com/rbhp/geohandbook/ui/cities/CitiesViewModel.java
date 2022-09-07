@@ -35,23 +35,24 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
     private static final String TAG_CACHE_LOAD = "Picasso";
 
     private final MutableLiveData<List<CityData>> cityListMutableLiveData;
-    private final MutableLiveData<CityData> clickedCityMap;
+    private final SingleLiveEvent<CityData> clickedCityMap;
     private final SingleLiveEvent<WeatherData> clickedCityWeather;
-    private final MutableLiveData<CityData> clickedCityImage;
-    private final FileUtil fileUtil;
+    private final SingleLiveEvent<CityData> clickedCityImage;
+    private final SingleLiveEvent<CityData> clickedCityVideo;
     private Integer numberOfImages;
 
 
     public CitiesViewModel(Application application) {
         super(application);
-        fileUtil = new FileUtil();
-        clickedCityMap = new MutableLiveData<>();
+        FileUtil fileUtil = new FileUtil();
+        clickedCityMap = new SingleLiveEvent<>();
         cityListMutableLiveData = new MutableLiveData<>();
         cityListMutableLiveData.setValue(fileUtil.loadData(getApplication().getApplicationContext(),
                 new TypeToken<List<CityData>>() {
                 }.getType()));
         clickedCityWeather = new SingleLiveEvent<>();
-        clickedCityImage = new MutableLiveData<>();
+        clickedCityImage = new SingleLiveEvent<>();
+        clickedCityVideo = new SingleLiveEvent<>();
         loadNumberOfImages();
     }
 
@@ -146,17 +147,21 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
                 });
     }
 
+    public void imageOnClick(CityData cityData) {
+        clickedCityImage.postValue(cityData);
+    }
+
+    public void videoOnClick(CityData cityData) {
+        clickedCityVideo.postValue(cityData);
+    }
+
     public void loadNumberOfImages() {
         Context context = getApplication().getApplicationContext();
         SharedPreferences preferences = context.getSharedPreferences(context.getPackageName(), Context.MODE_PRIVATE);
         setNumberOfImages(preferences.getInt(NUMBER_OF_IMAGES, 5));
     }
 
-    public void imageOnClick(CityData cityData) {
-        clickedCityImage.setValue(cityData);
-    }
-
-    public MutableLiveData<CityData> getClickedCityMap() {
+    public SingleLiveEvent<CityData> getClickedCityMap() {
         return clickedCityMap;
     }
 
@@ -172,7 +177,7 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
         clickedCityWeather.setValue(weatherData);
     }
 
-    public MutableLiveData<CityData> getClickedCityImage() {
+    public SingleLiveEvent<CityData> getClickedCityImage() {
         return clickedCityImage;
     }
 
@@ -195,5 +200,9 @@ public class CitiesViewModel extends AndroidViewModel implements CityListener {
 
     public void setNumberOfImages(Integer numberOfImages) {
         this.numberOfImages = numberOfImages;
+    }
+
+    public SingleLiveEvent<CityData> getClickedCityVideo() {
+        return clickedCityVideo;
     }
 }

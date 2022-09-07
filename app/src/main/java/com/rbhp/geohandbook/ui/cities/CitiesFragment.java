@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
@@ -19,7 +20,6 @@ import com.rbhp.geohandbook.R;
 import com.rbhp.geohandbook.data.CityData;
 import com.rbhp.geohandbook.data.WeatherData;
 import com.rbhp.geohandbook.databinding.FragmentCitiesBinding;
-import com.rbhp.geohandbook.ui.video.VideoDialog;
 import com.rbhp.geohandbook.ui.weather.WeatherDialog;
 
 public class CitiesFragment extends Fragment {
@@ -46,6 +46,7 @@ public class CitiesFragment extends Fragment {
         viewModel.getClickedCityMap().observe(getViewLifecycleOwner(), this::openCityOnMap);
         viewModel.getClickedCityWeather().observe(getViewLifecycleOwner(), this::openWeatherDialog);
         viewModel.getClickedCityImage().observe(getViewLifecycleOwner(), this::openCityImages);
+        viewModel.getClickedCityVideo().observe(getViewLifecycleOwner(), this::openCityVideo);
 
         SnapHelper snapHelper = new PagerSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
@@ -58,8 +59,6 @@ public class CitiesFragment extends Fragment {
         dialog.show(requireActivity().getSupportFragmentManager(), "Weather");
     }
 
-    //TODO video streaming
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -70,21 +69,26 @@ public class CitiesFragment extends Fragment {
         if (cityData == null) {
             return;
         }
-//        Bundle arguments = new Bundle();
-//        arguments.putBoolean("City", true);
-//        Navigation.findNavController(requireView()).navigate(R.id.cities_navigate_to_maps, arguments);
-//TODO Napravi u fragment jebiga
-        Bundle arg = new Bundle();
-        arg.putString("Url", cityData.getVideoUrl());
+        Bundle arguments = new Bundle();
+        arguments.putBoolean("City", true);
+        Navigation.findNavController(requireView()).navigate(R.id.cities_navigate_to_maps, arguments);
+    }
 
-        DialogFragment dialogFragment = new VideoDialog();
-        dialogFragment.show(requireActivity().getSupportFragmentManager(), "video" );
+    private void openCityVideo(CityData cityData) {
+        if (cityData == null) {
+            return;
+        }
+        Bundle arg = new Bundle();
+        arg.putString("videoUrl", cityData.getVideoUrl());
+        Navigation.findNavController(requireView()).navigate(R.id.navigation_video, arg);
     }
 
     private void openCityImages(CityData cityData) {
         if (cityData == null) {
             return;
         }
-        Navigation.findNavController(requireView()).navigate(R.id.navigate_to_city_images);
+        Bundle arguments = new Bundle();
+        arguments.putString("City", cityData.getName());
+        Navigation.findNavController(requireView()).navigate(R.id.navigate_to_city_images, arguments);
     }
 }

@@ -42,13 +42,7 @@ public class AttractionsFragment extends Fragment {
         toggleGroup = root.findViewById(R.id.toggle_button_group);
         toggleGroup.addOnButtonCheckedListener((group, checkedId, isChecked) -> {
             if (isChecked) {
-                if (checkedId == R.id.all_attractions_button) {
-                    viewModel.updateFavourites();
-                    recyclerViewAdapter.setFavouritesSelected(false);
-                } else {
-                    viewModel.updateFavourites();
-                    recyclerViewAdapter.setFavouritesSelected(true);
-                }
+                recyclerViewAdapter.setFavouritesSelected(checkedId != R.id.all_attractions_button);
             }
         });
 
@@ -67,9 +61,15 @@ public class AttractionsFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewModel.getFavouritesSelected().observe(getViewLifecycleOwner(),
-                aBoolean -> {
-                    viewModel.updateFavourites();
-                    recyclerViewAdapter.setFavouritesSelected(aBoolean);
-                });
+                aBoolean -> recyclerViewAdapter.setFavouritesSelected(aBoolean));
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (viewModel != null) {
+            viewModel.persistFavourites();
+        }
+        binding = null;
     }
 }

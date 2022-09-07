@@ -19,6 +19,10 @@ public class WeatherDialog extends DialogFragment {
     private WeatherData weatherData;
     private final CitiesViewModel viewModel;
 
+    public WeatherDialog() {
+        viewModel = null;
+    }
+
     public WeatherDialog(WeatherData weatherData, CitiesViewModel viewModel) {
         this.weatherData = weatherData;
         this.viewModel = viewModel;
@@ -27,6 +31,10 @@ public class WeatherDialog extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         DialogWeatherBinding binding = DialogWeatherBinding.inflate(inflater, container, false);
+        if (weatherData == null || viewModel == null) {
+            onDestroy();
+            dismiss();
+        }
         binding.setWeatherData(weatherData);
         binding.setViewModel(viewModel);
         return binding.getRoot();

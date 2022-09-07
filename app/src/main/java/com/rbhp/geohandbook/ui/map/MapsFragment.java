@@ -81,10 +81,6 @@ public class MapsFragment extends Fragment {
         googleMap.setOnMarkerClickListener(marker -> {
             AttractionDialog dialog = new AttractionDialog((AttractionData) marker.getTag());
             dialog.show(requireActivity().getSupportFragmentManager(), "Attraction");
-//            AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
-//            builder.setMessage("AAAAAAAAAAAAAA")
-//                    .create()
-//                    .show();
             return false;
         });
     };

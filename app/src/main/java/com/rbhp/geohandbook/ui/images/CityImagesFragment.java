@@ -18,6 +18,8 @@ import com.rbhp.geohandbook.data.CityData;
 import com.rbhp.geohandbook.databinding.FragmentCityImagesBinding;
 import com.rbhp.geohandbook.ui.cities.CitiesViewModel;
 
+import java.util.Objects;
+
 public class CityImagesFragment extends Fragment {
     private static final String CITY_IMAGES_FRAGMENT_TAG = "CityImagesFragment";
 
@@ -30,7 +32,16 @@ public class CityImagesFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         viewModel = new ViewModelProvider(requireActivity()).get(CitiesViewModel.class);
-        CityData cityData = viewModel.getClickedCityImage().getValue();
+        if (getArguments() == null) {
+            onDestroy();
+        }
+        String cityName = getArguments().getString("City");
+        CityData cityData = Objects.requireNonNull(viewModel.getCityLiveData().getValue()).stream().filter(city -> city.getName().equals(cityName)).findFirst().orElse(null);
+
+        if (cityData == null) {
+            Log.e(CITY_IMAGES_FRAGMENT_TAG, "onCreateView: cityData is null");
+            onDestroy();
+        }
 
         viewModel.setClickedCityImage(null);
         binding = FragmentCityImagesBinding.inflate(inflater, container, false);
@@ -38,11 +49,11 @@ public class CityImagesFragment extends Fragment {
         binding.setLifecycleOwner(getViewLifecycleOwner());
 
         recyclerView = root.findViewById(R.id.city_images_recycler_view);
-        if (cityData == null){
+        if (cityData == null) {
             Log.e(CITY_IMAGES_FRAGMENT_TAG, "onCreateView: cityData is null");
         } else {
             int number = viewModel.getNumberOfImages();
-            if (cityData.getImageUrls().size() < viewModel.getNumberOfImages()){
+            if (cityData.getImageUrls().size() < viewModel.getNumberOfImages()) {
                 number = cityData.getImageUrls().size();
             }
             cityImagesRecyclerViewAdapter = new CityImagesRecyclerViewAdapter(cityData.getImageUrls().subList(0, number));

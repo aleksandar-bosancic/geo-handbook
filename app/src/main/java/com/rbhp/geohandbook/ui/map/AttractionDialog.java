@@ -19,6 +19,11 @@ import com.rbhp.geohandbook.databinding.DialogAttractionBinding;
 public class AttractionDialog extends DialogFragment {
     private final AttractionData attractionData;
 
+    public AttractionDialog() {
+        attractionData = null;
+        onDestroy();
+    }
+
     public AttractionDialog(AttractionData attractionData) {
         this.attractionData = attractionData;
     }
@@ -27,6 +32,10 @@ public class AttractionDialog extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         DialogAttractionBinding binding = DataBindingUtil.inflate(inflater, R.layout.dialog_attraction, container, false);
+        if (attractionData == null) {
+            onDestroy();
+            this.dismiss();
+        }
         binding.setAttraction(attractionData);
         return binding.getRoot();
     }

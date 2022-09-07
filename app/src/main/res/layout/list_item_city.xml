@@ -61,7 +61,7 @@
                         android:scaleType="centerCrop"
                         app:imageUrl="@{city}" />
 
-                    <LinearLayout
+                    <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
@@ -73,9 +73,27 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_horizontal"
+                            android:layout_weight="1"
                             android:text="@{city.name}"
-                            android:textSize="@dimen/city_name_text_size" />
-                    </LinearLayout>
+                            android:textSize="@dimen/city_name_text_size"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <Button
+                            android:id="@+id/show_city_video_button"
+                            style="@style/Widget.Material3.Button.TextButton.Dialog.Icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_youtube"
+                            android:drawableTint="?attr/colorPrimary"
+                            android:gravity="end|center"
+                            android:onClick="@{() -> viewModel.videoOnClick(city)}"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/title_text_view"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"

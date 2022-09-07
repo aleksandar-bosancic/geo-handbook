@@ -76,7 +76,6 @@ public class NewsViewModel extends AndroidViewModel {
         List<NewsEntity> entities = newsItemList.getValue().stream()
                 .map(item -> new NewsEntity(item.getTitle(), item.getPubDate(), item.getLink(), item.getGuid(), item.getAuthor(), item.getDescription(), item.getContent(), item.getEnclosure().getLink())).collect(Collectors.toList());
         newsDao.insertAll(entities);
-        Log.println(Log.ASSERT, "db", newsDao.getAll().toString());
     };
 
     Runnable getFromDb = () -> {
@@ -85,7 +84,6 @@ public class NewsViewModel extends AndroidViewModel {
             NewsData newsData = new NewsData(item.title, item.pubDate, item.link, item.guid, item.author, item.description, item.content);
             NewsData.Enclosure enclosure = newsData.new Enclosure(item.enclosureLink, item.enclosureType);
             newsData.setEnclosure(enclosure);
-            Log.println(Log.ASSERT, "db", persistedNews.toString());
             return newsData;
         }).collect(Collectors.toList()));
     };

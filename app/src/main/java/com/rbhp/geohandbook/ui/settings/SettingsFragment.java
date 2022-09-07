@@ -80,8 +80,6 @@ public class SettingsFragment extends Fragment implements View.OnFocusChangeList
 
     @Override
     public void onFocusChange(View v, boolean hasFocus) {
-        if (!hasFocus) {
-            Log.println(Log.ASSERT, "lost", v.toString());
-        }
+        ((EditText) v).setCursorVisible(hasFocus);
     }
 }

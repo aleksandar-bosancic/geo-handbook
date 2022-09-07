@@ -20,6 +20,11 @@
             app:destination="@id/navigation_city_images"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/cities_navigate_to_video"
+            app:destination="@+id/navigation_video"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"/>
     </fragment>
 
     <fragment
@@ -80,5 +85,18 @@
             app:popUpTo="@id/navigate_to_cities"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_video"
+        android:name="com.rbhp.geohandbook.ui.video.VideoFragment"
+        android:label="City Video"
+        tools:layout="@layout/fragment_video">
+        <action
+            android:id="@+id/video_navigate_to_cities"
+            app:destination="@+id/navigation_cities"
+            app:popUpTo="@id/navigation_cities"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"/>
     </fragment>
 </navigation>
